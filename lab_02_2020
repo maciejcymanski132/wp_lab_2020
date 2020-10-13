@@ -135,6 +135,65 @@ return 0;
 
 
 
+----------------------------------------------------------------------------------------
+#zadanie_6
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+  float a;
+  printf("Podaj wartość temperatury w C:");
+  scanf("%f",&a);
+  float fahren= (a * 1.8) +32;
+  printf("Temperatura w Fahrenheit:%f",fahren);
+
+return 0;
+}
+
+----------------------------------------------------------------------------------------
+#zadanie_7
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+  float a;
+  printf("Podaj wartość temperatury w F:");
+  scanf("%f",&a);
+  float c= (a-32)/2;
+  printf("Temperatura w Fahrenheit:%f",c);
+
+return 0;
+}
+
+----------------------------------------------------------------------------------------
+#zadanie_8
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+  float x;
+  float y;
+  printf("Podaj punkt x:");
+  scanf("%f",&x);
+  printf("Podaj punkt y:");
+  scanf("%f",&y);
+if(x <= 10 && y <= 10)
+  printf("Punkt znajduje sie w kwadracie");
+else
+  printf("Punkt jest poza kwadratem");
+
+
+  return 0;
+
+}
+
+
 
 
 
