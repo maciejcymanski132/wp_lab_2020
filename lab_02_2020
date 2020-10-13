@@ -23,7 +23,9 @@ else
 
 return 0;
 }
---------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------
 #zadanie_2
 
 
@@ -71,7 +73,8 @@ return 0;
 }  
 
 
---------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------
 #zadanie_3
 
 #include <stdio.h>
@@ -93,6 +96,43 @@ else
 
 return 0;
 }
+
+
+----------------------------------------------------------------------------------------
+#zadanie_4
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+  float a;
+  float b;
+  float c;
+
+  printf("Podaj liczbe a:");
+  scanf("%fgetc(FILE *__stream)",&a);
+  printf("Podaj liczbe b:");
+  scanf("%f",&b);
+  printf("Podaj liczbe c:");
+  scanf("%f",&c);
+
+float delta = b*b - 4*a*c;
+float deltazero = -b/2*a;
+float zero1 = (-b + sqrt(delta))/(2*a);
+float zero2 = (-b - sqrt(delta))/(2*a);
+
+if(delta<0)
+  printf("Funkcja nie ma rozwiązań");
+if(delta==0)
+  printf("Jedno miejsce zerowe:%f",deltazero);
+if(delta>0)
+  printf("Miejsca zerowe to:%f,%f",zero1,zero2);
+
+
+return 0;
+}
+
 
 
 
