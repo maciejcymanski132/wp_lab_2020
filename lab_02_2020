@@ -1,0 +1,108 @@
+#zadanie_1
+
+
+#include <stdio.h>
+
+int main(void) {
+  float a;
+  float b;
+  printf("Podaj liczbe a:");
+  scanf("%f",&a);
+  printf("Podaj liczbe b:");
+  scanf("%f",&b);
+  float dziel = a / b;
+
+
+if (b==0)
+  printf("Nie da się wykonać dzielenia");
+else
+  printf("Wynik dzielenia to:%.3f",dziel);
+
+
+
+
+return 0;
+}
+--------------------------------------------------------------------
+#zadanie_2
+
+
+
+#include <stdio.h>
+
+int main(void) {
+  double a;
+  double b;
+  double c;
+  printf("Podaj liczbe a:");
+  scanf("%lf",&a);
+  printf("Podaj liczbe b:");
+  scanf("%lf",&b);
+  printf("Podaj liczbe c:");
+  scanf("%lf",&c);
+
+  if(a>=b && a>=c)
+    {printf("a\n");
+    if(b >= c)
+      printf("b \nc\n");
+    else
+      printf("c \nb\n");}
+  else
+
+ if(b >= a && b >= c)
+    {printf("b\n");
+    if(a >= c)
+      printf("a \nc\n");
+    else
+      printf("c \na\n");}
+  else
+
+ if( c >= b && c >= a )
+    {printf("c\n");
+    if(a >= b)
+      printf("a \nb\n");
+    else
+      printf("b \na\n");}
+  else
+ 
+ 
+
+return 0;
+}  
+
+
+--------------------------------------------------------------------
+#zadanie_3
+
+#include <stdio.h>
+
+int main(void) {
+  float a;
+  float b;
+
+  printf("Podaj liczbe a:");
+  scanf("%fgetc(FILE *__stream)",&a);
+  printf("Podaj liczbe b:");
+  scanf("%f",&b);
+
+float x0 = -b/a;
+if(a==0)
+  printf("Funkcja ma nieskończenie wiele miejsc zerowych");
+else
+  printf("Miejsce zerowe funkcji to:%.3f",x0);
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
