@@ -135,6 +135,26 @@ return 0;
 }
 
 
+----------------------------------------------------------------------------------------
+#zadanie_5
+
+#include <stdio.h>
+
+int main(void) {
+  printf("Podaj swój znak:\n");
+  char a;
+  scanf("%c",&a);
+  switch(a)
+  {
+    case 65 ... 90 : printf("Znak jest literą alfabetu łacińskiego");break;
+    case 97 ... 122: printf("Znak jest literą alfabetu łacińskiego");break;
+    default : printf("Znak nie jest literą alfabetu łacińskiego");break;
+  }
+
+  return 0;
+}
+
+
 
 ----------------------------------------------------------------------------------------
 #zadanie_6
@@ -195,11 +215,107 @@ else
 }
 
 
+----------------------------------------------------------------------------------------
+
+#zadanie_9
+
+
+#include <stdio.h>
+
+int main(void) {
+  printf("Podaj swój znak:\n");
+  char a;
+  scanf("%c",&a);
+  switch(a)
+  {
+    case 65 ... 90 : printf("Wczytany znak jest wielką literą");break;
+    case 97 ... 122: printf("Wczytany znak jest małą literą");break;
+    case 48 ... 57 : printf("Wczytany znak jest cyfrą");break;
+    default: printf("Wczytany znak nie jest literą ani cyfrą");break;
+  }
+  return 0;
+}
+
+
+----------------------------------------------------------------------------------------
+#zadanie_10
+
+#include <stdio.h>
+
+int main(void) {
+  printf("Podaj swój znak:\n");
+  int a;
+  scanf("%d",&a);
+  if(a%4==0)
+    printf("Podany rok jest rokiem przestępnym");
+  else
+    printf("Podany rok nie jest rokiem przestępnym");
+  return 0;
+}
+
+
+----------------------------------------------------------------------------------------
+#zadanie_11
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+#zadanie_12
+
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void) {
+  printf("Podaj swój znak:\n");
+  char a;
+  scanf("%c",&a);
+  switch(tolower(a))
+  {
+    case 97 : printf("s\n");break;
+    case 98 : printf("n\n");break;
+    case 99 : printf("v\n");break;
+    case 100 : printf("f\n");break;
+    case 101 : printf("r\n");break;
+    case 102 : printf("g\n");break;
+    case 103 : printf("h\n");break;
+    case 104 : printf("j\n");break;
+    case 105 : printf("o\n");break;
+    case 106 : printf("k\n");break;
+    case 107 : printf("l\n");break;
+    case 108 : printf(";\n");break;
+    case 109 : printf(",\n");break;
+    case 110 : printf("m\n");break;
+    case 111 : printf("p\n");break;
+    case 112 : printf("[\n");break;
+    case 113 : printf("w\n");break;
+    case 114 : printf("t\n");break;
+    case 115 : printf("d\n");break;
+    case 116 : printf("y\n");break;
+    case 117 : printf("i\n");break;
+    case 118 : printf("b\n");break;
+    case 119 : printf("e\n");break;
+    case 120 : printf("c\n");break;
+    case 121 : printf("u\n");break;
+    case 122 : printf("x\n");break;
+    default : printf("znak nie jest literą");break;
+
+  }
+
+  return 0;
+}
 
 
 
