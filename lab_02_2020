@@ -258,13 +258,34 @@ int main(void) {
 #zadanie_11
 
 
+#include <stdio.h>
+
+int main(void) {
+
+  int a;
+  printf("Podaj liczbę: ");
+  scanf("%d",&a);
+
+  
+    switch(a)
+    {
+      case 0: printf("Zero")     ; break;
+      case 1: printf("Jeden")    ; break;
+      case 2: printf("Dwa")      ; break;
+      case 3: printf("Trzy")     ; break;
+      case 4: printf("Cztery")   ; break;
+      case 5: printf("Pięć")     ; break;
+      case 6: printf("Sześć")    ; break;
+      case 7: printf("Siedem")   ; break;
+      case 8: printf("Osiem")    ; break;
+      case 9: printf("Dziewięć") ; break;
+      default: printf("Podana liczba nie jest cyfrą"); break;
+    }
 
 
-
-
-
-
-
+  
+  return 0;
+}
 
 
 
