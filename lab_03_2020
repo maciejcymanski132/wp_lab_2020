@@ -198,6 +198,12 @@ return 0;
 Zadanie_10
 
 
+10.  Napisz program, który wczyta kolejne liczby rzeczywiste i wypisze ich sumę, średnią aryt-metyczną, wartość największą i najmniejszą.  
+Program powinien zakończyć wczytywanie liczb, gdy użytkownik poda wartość 0.
+
+
+
+
 #include<stdio.h>
 
 int main(void)
