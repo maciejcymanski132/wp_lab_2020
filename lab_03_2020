@@ -165,6 +165,33 @@ for (int a = b;a <= 0; a = b)
 return 0;
 }
 
+---------------------------------------------------
+Zadanie_06   
+
+
+
+6.  Napisz program,  który wczyta liczbę naturalnąni wypisze na ekran jej reprezentacjębinarną w odwrotnej kolejności (rozpoczynając od najmniej znaczącej cyfry)
+
+
+#include <stdio.h>
+
+
+int main(void)
+{
+    int x;
+    printf("Podaj swoją cyfrę:");
+    scanf("%d",&x);
+    while(x>0)
+    if(x%2==1)
+      {printf("1");
+      x=(x-1)/2;
+      }
+    else
+      {printf("0");
+      x=x/2;
+      }
+    
+}
 
 ---------------------------------------------------
 Zadanie_07
@@ -195,7 +222,19 @@ return 0;
 
 
 ---------------------------------------------------
+Zadanie_08
+
+
+
+---------------------------------------------------
+Zadanie_09
+
+
+
+---------------------------------------------------
 Zadanie_10
+
+
 
 
 10.  Napisz program, który wczyta kolejne liczby rzeczywiste i wypisze ich sumę, średnią aryt-metyczną, wartość największą i najmniejszą.  
@@ -254,6 +293,11 @@ printf("Max: %f Min: %f Avg: %f Sum: %f",max,min,avg,suma);
 return 0;
 }
 
+
+---------------------------------------------------
+Zadanie_11
+
+
 ---------------------------------------------------
 Zadanie_12
 
@@ -286,6 +330,16 @@ printf("Suma cyfr wynosi : %d", suma);
 
 return 0;
 }
+
+
+---------------------------------------------------
+Zadanie_13
+
+
+
+
+
+
 
 
 
@@ -325,7 +379,37 @@ else
 return 0;
 
 }
-=====================
+
+
+---------------------------------------------------
+Zadanie_15
+
+
+
+15.  Napisz program, który obliczy przybliżenie liczbyπ.  Skorzystaj ze wzoru:∑∞n=0 (−1)^n/2n+1=π/4
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+
+    int z;
+    int n=0;
+    float sum =0;
+    printf("Podaj liczbę pętli:");
+    scanf("%d",&z);
+    
+    while(n<=z)
+    {sum=sum+(pow((-1),n)/((2*n)+1));
+    n=n+1;}
+
+sum=sum*4;
+printf("This is sum:%f",sum);
+    return 0;
+}
+
 
 
 
