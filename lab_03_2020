@@ -224,12 +224,47 @@ return 0;
 ---------------------------------------------------
 Zadanie_08
 
+8.  Napisz  program,  który  dla  podanej  podstawy a i  wykładnika b obliczy  wartość a do potęgi b.  
+Przyjmij, że podstawa jest liczbą rzeczywistą a wykładnik liczbą naturalną.
 
+
+
+#include <stdio.h>
+#include <math.h>
+int main(void) {
+  float a;
+  unsigned int b;
+  printf("Podaj podstawę: ");
+  scanf("%f",&a);
+  printf("Podaj wykładnik: ");
+  scanf("%u",&b);
+  float s;
+  s=pow(a,b);
+  printf("Wynik potęgowania: %f",s);
+  return 0;
+}
 
 ---------------------------------------------------
 Zadanie_09
 
+9.  Napisz program, który będzie wczytywał liczby naturalne aż do napotkania liczby 0.
 
+
+
+#include <stdio.h>
+
+
+int main(void) {
+  unsigned int a;
+  printf("Podaj liczbę");
+  scanf("%u",&a);
+  while(a != 0)
+  {
+    printf("Podaj liczbę");
+    scanf("%u",&a);
+  }
+  return 0;
+}
 
 ---------------------------------------------------
 Zadanie_10
@@ -297,6 +332,54 @@ return 0;
 ---------------------------------------------------
 Zadanie_11
 
+11.  Zmodyfikuj rozwiązanie poprzedniego zadania tak, aby wyświetlana była informacja odrugim największym elemencie.  
+Można założyć, że użytkownik poda przynajmniej dwie wartości
+
+
+
+#include<stdio.h>
+
+int main(void)
+{
+int c=0;
+float i,avg,suma,max,min,secondmax;
+printf("Podaj liczbę rzeczywistą");
+scanf("%f",&i);
+  max=0;
+  secondmax=0;
+while(i!=0)
+  {
+ 
+  
+  if(max==0)
+    max=i;
+    
+  else
+    if(i>max)
+     {
+       secondmax=max;
+       max=i;
+      }
+  else
+    ;
+  
+  if(i>secondmax && i<max)
+    secondmax=i;
+ 
+  
+  printf("Podaj liczbę rzeczywistą");
+  scanf("%f",&i);
+  }
+
+
+printf("Max: %f Second Max:%f" ,max,secondmax);
+
+
+return 0;
+}
+
+
+
 
 ---------------------------------------------------
 Zadanie_12
@@ -336,13 +419,37 @@ return 0;
 Zadanie_13
 
 
+13.  Napisz program, który na wejściu otrzyma cyfry w systemie binarnym i wypisze wartośćotrzymanej liczby w systemie dziesiętnym (schemat Hornera)
 
 
+#include <stdio.h>
 
 
+int main()
 
+{
+    int  liczba, a, b = 0, z = 1, x;
 
+ 
 
+    printf("Wpisz liczbę binarną: \n");
+
+    scanf("%d", &liczba);
+
+    a = liczba;
+
+    while (liczba > 0)
+
+    {
+      x = liczba % 10;
+      b = b + x * z;
+      liczba = liczba / 10 ;
+      z = z * 2;
+
+    }
+    printf("Podana liczba w systemie dziesiętnym: %d \n", b);
+  return 0;
+}
 
 
 
@@ -409,6 +516,45 @@ sum=sum*4;
 printf("This is sum:%f",sum);
     return 0;
 }
+
+
+
+----------------------------------------------------
+ZADANIE DODATKOWE
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int c, n;
+    n = rand() % 100 + 1;
+    printf("%d",n);
+    printf("Podaj numer");
+    scanf("%d",&c);
+    while(c != n)
+      {
+        if(c>n)
+        {
+        printf("Twoj numer jest zbyt duzy");
+        scanf("%d",&c);
+        }
+      
+        if(c<n)
+        {
+        printf("Twój numer jest zbyt mały");
+        scanf("%d",&c);
+        }
+
+        }
+    printf("Odgadłeś numer- Twój numer to:%d",n);
+  
+
+  return 0;
+}
+
+
+
 
 
 
