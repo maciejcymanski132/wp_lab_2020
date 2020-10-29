@@ -525,12 +525,14 @@ ZADANIE DODATKOWE
 
 #include <stdio.h>
 #include <stdlib.h>
+#include<time.h>
 
 int main() {
   int c, n;
+  srand(time(0)) ;
     n = rand() % 100 + 1;
-    printf("%d",n);
-    printf("Podaj numer");
+    
+    printf("Podaj numer: ");
     scanf("%d",&c);
     while(c != n)
       {
@@ -542,7 +544,7 @@ int main() {
       
         if(c<n)
         {
-        printf("Twój numer jest zbyt mały");
+        printf("Twój numer jest zbyt mały: ");
         scanf("%d",&c);
         }
 
@@ -552,6 +554,7 @@ int main() {
 
   return 0;
 }
+
 
 
 
