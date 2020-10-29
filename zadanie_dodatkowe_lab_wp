@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+int main() {
+  int c, n;
+  srand(time(0)) ;
+    n = rand() % 100 + 1;
+    
+    printf("Podaj numer: ");
+    scanf("%d",&c);
+    while(c != n)
+      {
+        if(c>n)
+        {
+        printf("Twoj numer jest zbyt duzy");
+        scanf("%d",&c);
+        }
+      
+        if(c<n)
+        {
+        printf("Twój numer jest zbyt mały: ");
+        scanf("%d",&c);
+        }
+
+        }
+    printf("Odgadłeś numer- Twój numer to:%d",n);
+  
+
+  return 0;
+}
