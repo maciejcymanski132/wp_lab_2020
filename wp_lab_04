@@ -40,20 +40,27 @@ ZADANIE_02
 2.  Napisz  program,  który  wczyta  liczbę  naturalną n i  wyświetli  na  ekranie  trójkąt  pros-tokątny o wysokości i podstawie długości n.
 
 
-
 #include <stdio.h>
 
-int main(void) {
-  int i, x, z ;
-  printf("Podaj wymiar trójkąta: ");
-  scanf("%i",&x);
-  for (i = 1; i <= x; i++) {
-      for (z = 1; z <= i; z++) {
-         printf("* ");
-      }
-      printf("\n");
-   }
-  return 0;
+int main()
+{
+  int x=999,y,z,q,temp;
+  while(x>=100)
+  { 
+    temp=x;
+    y=temp%10;
+    temp=temp/10;
+    z=temp%10;
+    temp=temp/10;
+    q=temp%10;
+    if(y<z && z<q)
+      printf("%d ",x);
+      
+    x=x-1;
+  }
+
+  
+    return 0;
 }
 
 
