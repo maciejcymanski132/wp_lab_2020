@@ -1,0 +1,153 @@
+---------------------------------------------------------
+ZADANIE_01
+
+#include <stdio.h>
+
+int main()
+{
+   int n, m;
+    printf("Podaj liczbę m: ");
+    scanf("%d", &m);
+    printf("Podaj liczbę n: ");
+    scanf("%d", &n);
+
+    if (n <= 0 || m <= 0)
+        printf("Conajmniej jedna z podanych liczb nie jest liczbą naturalną");
+    
+    else 
+    {
+        for (int x = 1; x <= n; x++)
+        {
+          for (int y = 1; y <= m ; y++)
+          {
+            int multiply = x*y;
+            printf("%d ", multiply);
+          }
+          printf("\n");
+
+        }
+    }
+
+    return 0;
+}
+
+
+
+----------------------------------------------------------
+ZADANIE_02
+
+
+2.  Napisz  program,  który  wczyta  liczbę  naturalną n i  wyświetli  na  ekranie  trójkąt  pros-tokątny o wysokości i podstawie długości n.
+
+
+
+#include <stdio.h>
+
+int main(void) {
+  int i, x, z ;
+  printf("Podaj wymiar trójkąta: ");
+  scanf("%i",&x);
+  for (i = 1; i <= x; i++) {
+      for (z = 1; z <= i; z++) {
+         printf("* ");
+      }
+      printf("\n");
+   }
+  return 0;
+}
+
+
+----------------------------------------------------------
+ZADANIE_03
+
+
+----------------------------------------------------------
+ZADANIE_04
+
+4.  Napisz program, który wypisze wszystkie liczby trzycyfrowe, których cyfry ułożone sąw kolejności malejącej.
+
+#include <stdio.h>
+
+int main()
+{
+  int x=999,y,z,q,temp;
+  while(x>=210)
+  { 
+    temp=x;
+    y=temp%10;
+    temp=temp/10;
+    z=temp%10;
+    temp=temp/10;
+    q=temp%10;
+    if(y<z && z<q)
+      printf("%d ",x);
+      
+    x=x-1;
+  }
+
+  
+    return 0;
+}
+
+----------------------------------------------------------
+ZADANIE_05
+
+
+5.  Napisz  program,  który  wczyta  liczbę  naturalną n i  za  pomocą  gwiazdek  wyświetli  na ekranie trójkąt równoramienny o wysokości n i podstawie długości 2n-1.  
+
+#include <stdio.h>
+
+int main(void) {
+  int i, x, z, k ;
+  printf("Podaj wymiar trójkąta: ");
+  scanf("%d",&x);
+  for (i = 1; i <= x; ++i,k=0) {
+      for (z = 1; z <= x -i; ++z) {
+         printf("  ");
+      }
+      while (k != 2 * i - 1) {
+         printf("* ");
+         ++k;
+         }
+      printf("\n");
+   }
+  return 0;
+}
+
+----------------------------------------------------------
+ZADANIE_07
+
+7.  Napisz program, który dla danej liczby naturalnej n sprawdzi czy da się ją uzyskać jakosumę dwóch kwadratów
+
+
+#include <stdio.h>
+
+int main(void) {
+  int x,z,n,count=0;
+  printf("Podaj liczbę ");
+  scanf("%d",&n);
+  if(n<0)
+    printf("Podana liczba nie jest naturalna");
+  else{
+  for(x=1;x<=n;x++)
+    {for(z=1;z<=n;z++)
+      {
+        if((z*z + x*x)==n)
+          {
+            printf("Udało się kwadraty liczb: %d %d\n",z,x);
+          count=count+1;
+          }
+      }
+      }
+      }
+
+  if(count<1)
+    printf("Nie udalo sie znalezc pary liczb");
+    return 0;
+}
+}
+
+
+
+
+
