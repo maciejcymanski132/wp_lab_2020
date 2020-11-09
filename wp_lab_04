@@ -154,6 +154,102 @@ int main(void) {
 }
 }
 
+----------------------------------------------------------
+ZADANIE_08
+
+#include <stdio.h>
+
+int main(void) {
+  unsigned int x,y;
+  
+  int a,b,m,q,z,n,count=0,c=0,i,suma;
+  
+  do{
+  printf("\nCo chcesz zrobić :\n 1 - sprawdzic czy liczba jest pierwsza \n 2 - sprawdzic czy liczba jest suma dwóch kwadratow \n 3 - policzyc sume cyfr liczby \n 4 - zakonczyc dzialanie programu\n");
+  scanf("%d",&m);
+  
+  switch(m)
+  {case 1:
+  
+   
+
+   printf("Podaj liczbę naturalną:\n");
+   scanf("%u",&a);
+
+   b=a;
+
+   while(b>0)
+   if(a%b==0)
+      {c=c+1;
+      b=b-1;}
+    else
+      b=b-1;
+    ;
+
+  if(c>2)
+  printf("Liczba nie jest liczbą pierwszą");
+  else
+  printf("Liczba jest liczbą pierwszą");
+  ;break;
+  
+  
+  
+  case 2: 
+  
+
+  printf("Podaj liczbę ");
+  scanf("%d",&n);
+  if(n<0)
+    printf("Podana liczba nie jest naturalna");
+  else{
+    for(x=1;x<=n;x++)
+      {for(z=1;z<=n;z++)
+        {
+          if((z*z + x*x)==n)
+          {
+            printf("Udało się kwadraty liczb: %d %d\n",z,x);
+            count=count+1;
+          }
+      }
+      }
+      }
+      if(count<1)
+          printf("Nie udalo sie znalezc pary liczb");
+      ;break;
+    
+    
+    
+    case 3:
+    
+  
+
+
+
+printf("Podaj liczbę: i\n");
+scanf("%d", &i);
+ 
+suma = 0;
+while (i != 0)
+{
+suma += i%10;
+i /= 10;
+}
+ 
+printf("Suma cyfr wynosi : %d", suma);
+;break;
+
+
+    
+  case 4:
+   printf("Wychodze z programu") ;break;
+   default: printf("Niepoprawna wartość");break;
+}
+  }
+while(m!=4);
+return 0;
+  }
+  
+  
 
 
 
