@@ -34,7 +34,27 @@ int main(void) {
 -------------------------------------------------------------------
 ZADANIE 3
 
+#include <stdio.h>
 
+
+void fib(int n) {
+    int x=0, y=1;
+    for(int i=0; i<=n; i++) {
+        printf("%d ", y);    
+        y=x+y;
+        x = y-x;
+    }
+}
+int main() {
+    int n;
+    printf("Podaj n<20: ");
+    scanf("%d", &n);
+while(n>=20) {
+printf("Niepoprawne n.Podaj n<20\n");
+scanf("%d", &n);}
+fib(n);
+return 0;
+}
 -------------------------------------------------------------------
 ZADANIE 4
 
@@ -58,6 +78,38 @@ int main(void) {
 }
 -------------------------------------------------------------------
 ZADANIE 5
+
+#include <stdio.h>
+
+int main() {
+    
+    
+    
+    printf("Podaj liczbę n<100:\n");
+    int n;
+    scanf("%d", &n);
+    
+      while(n>=100) {
+        printf("Liczba ma być mniejsza od 100. Podaj liczbę:\n");
+        scanf("%d", &n);
+    }
+  
+    
+    int tab[n],tab2[n];
+    
+    for(int i=0; i<n; i++){
+        printf("Podaj cyfrę:\n");
+        scanf("%d",&tab[i]);
+        tab2[i]=tab[i];
+}
+  printf("Odwrocona tab2");
+    for(int i=n; i>=0; i--){
+        printf(" %d ",tab2[i]);
+}
+    
+   
+    return 0;
+}
 -------------------------------------------------------------------
 ZADANIE 6
 
@@ -92,6 +144,29 @@ int main()
 
 -------------------------------------------------------------------
 ZADANIE 7
+#include <stdio.h>
+
+int main()
+{
+    int y = 1,n;
+    printf("Podaj n:\n");
+    scanf("%d",&n);
+    while (y <= n)
+    {
+      for (int x = 2; x <= y ; x=x+1)
+        if (y % x == 0)
+        {
+          if (y == x)
+              printf("%d ", y);
+           else
+              break;
+          }
+      y=y+1;
+    }
+
+    return 0;
+}
+
 -------------------------------------------------------------------
 ZADANIE 8
 
@@ -133,8 +208,80 @@ ZADANIE 9
 -------------------------------------------------------------------
 ZADANIE 10
 
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20],max,secondmax=0,i;                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+for(i=0;i<19;i++)
+  {
+    if(max==0)
+    max=tab[i];
+    
+  else
+    if(tab[i]>max)
+     {
+       secondmax=max;
+       max=tab[i];
+      }
+  
+  
+  if(tab[i]>secondmax && tab[i]<max)
+    secondmax=tab[i];
+    
+  }
+  printf("%d",secondmax);
+}
 
 -------------------------------------------------------------------
 ZADANIE 11
 -------------------------------------------------------------------
 ZADANIE 12
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20],i,j,a;                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+
+for (i = 0; i < 20; ++i) 
+  {
+   for (j = i + 1; j < 20; ++j)
+    {
+      if (tab[i] > tab[j]) 
+        { 
+          a =  tab[i];
+          tab[i] = tab[j];
+          tab[j] = a;
+        }
+    }
+  }
+ printf("Liczby w kolejnosci niemalejacej: \n");
+for (i = 0; i < 19; ++i)
+  printf("%d\n", tab[i]);
+    }
+ 
+
