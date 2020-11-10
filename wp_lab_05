@@ -1,0 +1,140 @@
+-------------------------------------------------------------------
+ZADANIE 1
+
+#include <stdio.h>
+
+int main(void) {
+  int tablica[20],n=1;
+  for(int i=0;i<20;i++)
+  {
+    tablica[i]=n;
+    n++;
+  }
+  
+  return 0;
+}
+-------------------------------------------------------------------
+ZADANIE 2
+
+
+#include <stdio.h>
+
+int main(void) {
+  int tablica[20],n=1;
+  for(int i=0;i<20;i++)
+  {
+    tablica[i]=n;
+    printf("%d\n",tablica[i]);
+    n++;
+  }
+  
+  return 0;
+}
+
+-------------------------------------------------------------------
+ZADANIE 3
+
+
+-------------------------------------------------------------------
+ZADANIE 4
+
+#include <stdio.h>
+
+int main(void) {
+  int i,n;
+  printf("Podaj liczbę n<100 \n");
+  scanf("%d",&n);
+  int tablica[n];
+  for(i=0;i<n;i++)
+    {
+    printf("Podaj wartość %d argumentu",i);
+    scanf("%d",&tablica[i]);
+    }
+  for(i=n-1;i>=0;i--)
+    printf("%d\n",tablica[i]);
+  
+
+  return 0;
+}
+-------------------------------------------------------------------
+ZADANIE 5
+-------------------------------------------------------------------
+ZADANIE 6
+
+#include <stdio.h>
+
+int main()
+{
+  int n, i, d;
+
+  printf("Podaj liczbę n<100 \n");
+  scanf("%d", &n);
+  int tablica[n], tablica1[n];
+  printf("Wprowadz elementy tablicy\n");
+
+  for (i=0;i<n;i++)
+    scanf("%d",&tablica[i]);
+
+
+  for (i=n-1,d = 0;i>=0;i--,d++)
+    tablica1[d] = tablica[i];
+
+  for (i=0;i<n;i++)
+    tablica[i] = tablica1[i];
+
+  printf("Odwrocona tablica:\n");
+
+  for (i=0;i<n;i++)
+    printf("%d\n", tablica[i]);
+
+  return 0;
+}
+
+-------------------------------------------------------------------
+ZADANIE 7
+-------------------------------------------------------------------
+ZADANIE 8
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20],tab1[20],i,y=0;                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+  for(i=0;i<20;i++,y=0)
+{
+  for(int x=i-1;x>=0;x--)
+   { y=y+tab[x];}
+  tab1[i]=y;
+  
+}
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+  
+  printf("\ntab1= ");
+  for(i=0;i<20;i++)
+  printf("%d ",tab1[i]);}
+  
+-------------------------------------------------------------------
+ZADANIE 9
+-------------------------------------------------------------------
+ZADANIE 10
+
+
+-------------------------------------------------------------------
+ZADANIE 11
+-------------------------------------------------------------------
+ZADANIE 12
