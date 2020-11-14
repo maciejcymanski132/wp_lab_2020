@@ -300,6 +300,63 @@ for(i=0;i<19;i++)
 
 -------------------------------------------------------------------
 ZADANIE 11
+
+
+
+
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20],tab1[20],i,y=0;                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+int secondmax=0;
+int max=0;
+int imax;
+int maxi;
+
+
+for(i=0;i<20;i++)
+{
+
+  if(max==0)
+    {max=tab[i];
+    maxi=i;}
+    
+  else
+    if(tab[i]>max)
+     {
+       imax=maxi;
+       maxi=i;
+       secondmax=max;
+       max=tab[i];
+      }
+  else
+    ;
+  
+  if(tab[i]>secondmax && tab[i]<max)
+    {secondmax=tab[i];
+    imax=i;}
+    
+}
+
+printf("Secondmax:%d\nSecondmax Indeks:%d\n",secondmax,imax);
+
+printf("Tablica:[");
+for(i=0;i<20;i++)
+  printf("%d,",tab[i]);
+  printf("]");
+return 0;
+}
 -------------------------------------------------------------------
 ZADANIE 12
 
