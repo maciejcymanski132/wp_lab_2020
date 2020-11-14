@@ -205,6 +205,55 @@ int main()
   
 -------------------------------------------------------------------
 ZADANIE 9
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20],tab1[20],i,y=0;                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+float suma=0;
+int max=0;
+int min=-1;
+
+float avg;
+
+for(i=0;i<20;i++)
+{
+  suma=suma+tab[i];
+  
+  if(max==0)
+    max=tab[i];
+  else
+    if(tab[i]>max)
+      max=tab[i];
+  
+  
+  
+  if(min==-1)
+    min=tab[i];
+  else
+    if(tab[i]<min)
+      min=tab[i];
+  
+    
+}
+avg=suma/20;
+printf("Srednia:%.2f\nMax:%d\nMin:%d\nSuma:%.2f\n",avg,max,min,suma);
+printf("Tablica:[");
+for(i=0;i<20;i++)
+  printf("%d,",tab[i]);
+  printf("]");
+return 0;
+}
 -------------------------------------------------------------------
 ZADANIE 10
 
