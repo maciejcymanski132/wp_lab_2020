@@ -41,10 +41,6 @@ avg=suma/20;
 max=tab[len-1];
 min=tab[0];
 printf("Srednia:%.2f\nMax:%d\nMin:%d\n",avg,max,min);
-printf("Tablica:[");
-for(i=0;i<20;i++)
-  printf("%d,",tab[i]);
-  printf("]");
 return 0;
 }
 
@@ -99,7 +95,6 @@ return 0;
 ------------------------------------------------------------------------
 ZADANIE 3
 
-
 #include<time.h>
 #include<stdlib.h>
 #include<stdio.h>
@@ -131,17 +126,19 @@ while(l<=p)
 {
 m=(l + p)/2;
 if(tab[m] == x)
-  {printf("Znaleziono cyfre");
-  e=1;}
+  e=1;
 
 if(tab[m]>x)
   p = m - 1;
 else
   l = m + 1;
+
 }
 
 if(e == 0)
 printf("Nie znaleziono liczby");
+else
+printf("Znaleziono liczbę");
 return 0;
 }
 
