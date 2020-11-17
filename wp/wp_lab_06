@@ -248,10 +248,116 @@ return 0;
 ZADANIE 6
 
 
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20];                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+
+  int x,i,r=0,w=0,m=0;
+
+  printf("Podaj liczbę:");
+  scanf("%d",&x);
+
+  for(i=0;i<20;i++)
+  {
+  if(tab[i]==x)
+    r+=1;
+  if(tab[i]>x)
+    w+=1;
+  if(tab[i]<x)
+    m+=1;
+  
+  }
+  printf("W zbiorze znajduje się \n%d większych liczb\n%d mniejszych liczb\n%d równych liczb",w,m,r);
+return 0;
+
+}
+
+
+
 ------------------------------------------------------------------------
 ZADANIE 7
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20];                // deklaracja tablicy
+	tab[0] = rand() % 5;        // 'wylosuj' liczbe z zakresu 0...4
+	for (int i=1; i<20; i++)    // dla kazdego elementu
+		 tab[i] = tab[i-1] + rand() % 3;   // 'wylosuj' liczbe z zakresu 0...2 i dodaj do poprzedniego elementu
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+
+
+
+int l=0,p=19,z,x,e=0,s;
+printf("Podaj swoje x: ");
+scanf("%d",&x);
+while(l<=p)
+{
+z=(l + p)/2;
+if(tab[z] == x)
+  {
+  s=z;
+  }
+
+if(tab[z]>x)
+  p = z - 1;
+else
+  l = z + 1;
+}
+
+int j,w=0,m=0,r=0;
+
+for(j=0 ; j<=s ; j++)
+{
+if(tab[j]==x)
+r=r+1;
+
+if(tab[j]<x)
+m+=1;
+}
+for(j=19;j>s;j--)
+{
+if(tab[j]>x)
+w+=1;
+}
+printf("W danym zbiorze jest:\n%d większych liczb od x\n%d mniejszych liczb od x\n%d liczb równych x",w,m,r);
+return 0;
+}
 -----------------------------------------------------------------------
 ZADANIE 8
+
+
 ------------------------------------------------------------------------
 ZADANIE 9
 
