@@ -1,0 +1,257 @@
+------------------------------------------------------------------------
+ZADANIE 1
+
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20];                // deklaracja tablicy
+	tab[0] = rand() % 5;        // 'wylosuj' liczbe z zakresu 0...4
+	for (int i=1; i<20; i++)    // dla kazdego elementu
+		 tab[i] = tab[i-1] + rand() % 3;   // 'wylosuj' liczbe z zakresu 0...2 i dodaj do poprzedniego elementu
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+
+
+
+float suma=0;
+int max;
+int min;
+int i;
+float avg;
+int len = sizeof(tab)/sizeof(tab[0]); 
+
+for(i=0;i<20;i++)
+{
+  suma=suma+tab[i];  
+}
+avg=suma/20;
+max=tab[len-1];
+min=tab[0];
+printf("Srednia:%.2f\nMax:%d\nMin:%d\n",avg,max,min);
+printf("Tablica:[");
+for(i=0;i<20;i++)
+  printf("%d,",tab[i]);
+  printf("]");
+return 0;
+}
+
+
+
+*******
+W tablicy uporządkowanej wystarczy użyć ostatniego i pierwszego indeksu aby uzyskac maksymalna i minimalna wartosc. Pozwala to ominac bramki logiczne i nadpisywanie
+zmiennych przez iteracje po kolejnych elementach zbioru.
+
+------------------------------------------------------------------------
+ZADANIE 2
+
+
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20];                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+
+  int x,i,e;
+
+  printf("Podaj liczbę:");
+  scanf("%d",&x);
+
+  for(i=0;i<20;i++)
+  {if(tab[i]==x)
+  e=1;}
+  if(e==1)
+  printf("Liczba znajduje sie w zbiorze");
+  else
+  printf("Liczba nie znajduje sie w zbiorze");
+return 0;
+
+}
+------------------------------------------------------------------------
+ZADANIE 3
+
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20];                // deklaracja tablicy
+	tab[0] = rand() % 5;        // 'wylosuj' liczbe z zakresu 0...4
+	for (int i=1; i<20; i++)    // dla kazdego elementu
+		 tab[i] = tab[i-1] + rand() % 3;   // 'wylosuj' liczbe z zakresu 0...2 i dodaj do poprzedniego elementu
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+
+
+
+int l=0,p=19,m,x,e=0;
+printf("Podaj swoje x: ");
+scanf("%d",&x);
+while(l<=p)
+{
+m=(l + p)/2;
+if(tab[m] == x)
+  {printf("Znaleziono cyfre");
+  e=1;}
+
+if(tab[m]>x)
+  p = m - 1;
+else
+  l = m + 1;
+}
+
+if(e == 0)
+printf("Nie znaleziono liczby");
+return 0;
+}
+
+  
+------------------------------------------------------------------------
+ZADANIE 4
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20];                // deklaracja tablicy
+	for (int i=0; i<20; i++)    // dla kazdego elementu
+		 tab[i] = rand() % 20;   // 'wylosuj' liczbe z zakresu 0..19
+	
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+
+  int x,i,e,s;
+
+  printf("Podaj liczbę:");
+  scanf("%d",&x);
+
+  for(i=0;i<20;i++)
+  {
+  if(tab[i]==x)
+  {
+  e=1;
+  s=i;
+  }
+  }
+  if(e==1)
+  printf("Liczba %d znajduje się w zbiorze \nOstatni raz występuje w indeksie: %d",x,s);
+  else
+  printf("Liczba nie znajduje sie w zbiorze");
+return 0;
+
+}
+
+------------------------------------------------------------------------
+ZADANIE 5
+
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	/***** LOSOWANIE TABLICY ******/
+	srand( time( NULL ) );      // inicjalizacja generatora liczb pseudolosowych
+	int tab[20];                // deklaracja tablicy
+	tab[0] = rand() % 5;        // 'wylosuj' liczbe z zakresu 0...4
+	for (int i=1; i<20; i++)    // dla kazdego elementu
+		 tab[i] = tab[i-1] + rand() % 3;   // 'wylosuj' liczbe z zakresu 0...2 i dodaj do poprzedniego elementu
+	
+	/***** Tutaj umieść rozwiązanie zadania ******/    
+	
+	
+	/***** WYŚWIETLENIE ZAWARTOŚCI TABLICY ******/    
+	printf("tab = [");
+	for (int i=0; i<19; i++)
+		 printf("%d, ", tab[i]);
+	printf("%d]\n", tab[19]);
+
+
+
+int l=0,p=19,m,x,e=0,s;
+printf("Podaj swoje x: ");
+scanf("%d",&x);
+while(l<=p)
+{
+m=(l + p)/2;
+if(tab[m] == x)
+  {
+  e=1;
+  s=m;
+  }
+
+if(tab[m]>x)
+  p = m - 1;
+else
+  l = m + 1;
+}
+if(e == 0)
+printf("Nie znaleziono liczby");
+else
+printf("Znaleziono cyfre %d \nJej ostatni indeks to:%d",x,s);
+return 0;
+}
+
+------------------------------------------------------------------------
+ZADANIE 6
+
+
+------------------------------------------------------------------------
+ZADANIE 7
+-----------------------------------------------------------------------
+ZADANIE 8
+------------------------------------------------------------------------
+ZADANIE 9
+
