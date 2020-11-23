@@ -358,3 +358,31 @@ ZADANIE 8
 ------------------------------------------------------------------------
 ZADANIE 9
 
+
+#include <stdio.h>
+
+double rnd(float n) {
+  double value = (int)(n * 1000 + .5); 
+  return (double)value / 1000; 
+} 
+
+double sqrt(double s) {
+  double x = 1;
+
+  while (rnd(x*x) != s) {
+    x = (x + (s/x))/2;
+  }
+
+  return x;
+}
+
+int main() {
+  double n;
+
+  printf("Podaj liczbe: ");
+  scanf("%lf", &n);
+
+  printf("Pierwistek z liczby %.2lf = %.2lf", n, sqrt(n));
+
+  return 0;
+}
