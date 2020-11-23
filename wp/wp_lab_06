@@ -47,8 +47,16 @@ return 0;
 
 
 *******
-W tablicy uporządkowanej wystarczy użyć ostatniego i pierwszego indeksu aby uzyskac maksymalna i minimalna wartosc. Pozwala to ominac bramki logiczne i nadpisywanie
-zmiennych przez iteracje po kolejnych elementach zbioru.
+Liczba operacji do określenia maksymalnej i minimalnej wartości : 
+
+Tablica uporządkowana : 1
+Tablica nieuporządkowana : 20
+
+Liczba operacji do obliczenia średniej arytmetycznej wartości w tablicach:
+
+Tablica uporządkowana : 21
+Tablica nieuporządkowana : 21
+
 
 ------------------------------------------------------------------------
 ZADANIE 2
@@ -358,19 +366,18 @@ ZADANIE 8
 ------------------------------------------------------------------------
 ZADANIE 9
 
-
 #include <stdio.h>
 
-double rnd(float n) {
-  double value = (int)(n * 1000 + .5); 
+double num(float v) {
+  double value = (int)(v * 1000 + .5); 
   return (double)value / 1000; 
 } 
 
-double sqrt(double s) {
+double sqrt(double z) {
   double x = 1;
 
-  while (rnd(x*x) != s) {
-    x = (x + (s/x))/2;
+  while ( num(x*x) != z) {
+    x = (x + (z / x))/2;
   }
 
   return x;
@@ -382,7 +389,7 @@ int main() {
   printf("Podaj liczbe: ");
   scanf("%lf", &n);
 
-  printf("Pierwistek z liczby %.2lf = %.2lf", n, sqrt(n));
+  printf("Pierwiastek z liczby %.2lf to %.2lf", n, sqrt(n));
 
   return 0;
 }
