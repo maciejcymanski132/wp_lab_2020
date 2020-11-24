@@ -200,6 +200,8 @@ ZADANIE 09
 
 #include <stdio.h>
 
+///FUNKCJA NR 1
+
 int pierwsza(num){
   int b,c=0;
   
@@ -224,6 +226,7 @@ int pierwsza(num){
   return 0;
 }
 
+///FUNKCJA NR 2
 
 int sumak(num){
   int z,x,count=0;
@@ -249,10 +252,11 @@ int sumak(num){
   return 0;
 }
 
-
+///FUNKCJA NR 3
 
 int sumacyfr(num){
   int suma = 0,i;
+  
   while (num != 0)
   {
     suma += num%10;
@@ -263,8 +267,9 @@ int sumacyfr(num){
   return 0;
 }
 
+///FUNKCJA NR 4
 
-void exit(){
+void exito(){
   printf("Wychodzę z programu");
 }
 
@@ -294,22 +299,23 @@ int main(void) {
 
 
    
-case 3:
+  case 3:
 
-printf("Podaj liczbę: n\n");
-scanf("%d", &n);
-sumacyfr(n);
-;break;
+  printf("Podaj liczbę: n\n");
+  scanf("%d", &n);
+  sumacyfr(n);
+  ;break;
 
 
     
-case 4:
-exit(void) ;break;
-default: printf("Niepoprawna wartość");break;
+  case 4:
+  exito() ;break;
+  default: printf("Niepoprawna wartość");break;
 }
   }
 while(m!=4);
 return 0;
   }
+  
   
 
