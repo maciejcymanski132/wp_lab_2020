@@ -1,0 +1,315 @@
+-----------------------------------------------------------------
+ZADANIE 01
+
+
+
+#include <stdio.h>
+
+int liczba(num) {
+  int c=0;
+  while(num != 0)
+  {
+    num=num/10;
+    c=c+1;
+  }
+  
+  printf("Liczba cyfr: %d",c);
+  return c;
+}
+
+int main(void) {
+  liczba(789222);
+  return 0;
+}
+
+-----------------------------------------------------------------
+ZADANIE 02
+
+
+#include <stdio.h>
+
+int pierwsza(num) {
+  int c=num;
+  int a=0;
+  while(num != 0)
+  {
+    if( c%num==0)
+      a=a+1;
+    
+    num=num-1;
+  }
+  if(a>2)
+  printf("Liczba nie jest liczba pierwsza");
+  else
+  printf("Liczba jest liczba pierwsza");
+  return 0;
+}
+
+int main(void) {
+  pierwsza(11);
+  return 0;
+}
+
+
+
+-----------------------------------------------------------------
+ZADANIE 03
+
+
+
+#include <stdio.h>
+
+int pitagoras(a,b,c) {
+  if(a<0 || b<0 || c<0)
+  printf("Błędne wartości");
+  else
+  {
+  if(a*a==b*b+c*c || b*b==c*c+a*a || c*c==a*a+b*b)
+  printf("To liczby pitagorejskie\n");
+  else
+  printf("To nie sa liczby pitagorejskie\n");
+  }
+  return 0;
+}
+
+int main(void) {
+  pitagoras(24,7,25);
+  pitagoras(1,2,3);
+  return 0;
+}
+
+
+
+-----------------------------------------------------------------
+ZADANIE 04
+
+#include <stdio.h>
+
+int pitagoras(a,b,c) {
+  if(a<0 || b<0 || c<0)
+  printf("Błędne wartości");
+  else
+  {
+  if(a*a==b*b+c*c || b*b==c*c+a*a || c*c==a*a+b*b)
+  printf("To liczby pitagorejskie: %d,%d,%d\n",a,b,c);
+  }
+  return 1;
+  }
+
+int main(void) {
+  pitagoras(24,7,25);
+  int x=1,y=1,z=1,n,i;
+  printf("Podaj N:");
+  scanf("%d",&n);
+
+  
+for(int z=1; z<n-1; z++)
+{
+ for(int y=z+1; y<n; y++)
+   {
+     for(int x=y+1; x<n+1; x++)
+   {
+     pitagoras(x,y,z);    
+   }     
+}
+  return 0;
+}
+
+
+
+
+-----------------------------------------------------------------
+ZADANIE 05
+
+#include <stdio.h>
+#include <math.h>
+
+
+int kwadrat(x) {
+  int k=x*x;
+  return k;
+}
+
+
+int main(void) {
+  int x;
+  printf("Podaj liczbę x:");
+  scanf("%d",&x);
+  if(x>=1)
+  {
+    if(sqrt(kwadrat(x))==x)
+      printf("Równe");
+    if(sqrt(kwadrat(x))>x)
+    printf("Mniejsze");
+    if(sqrt(kwadrat(x))<x)
+    printf("Wieksze");
+  }
+  else
+  printf("niepoprawny x");
+  return 0;
+}
+
+-----------------------------------------------------------------
+ZADANIE 06
+
+
+#include <stdio.h>
+
+int inc(num) {
+    num++;
+    return num;
+
+} 
+    int main () {
+        int x=4;
+        x=(inc(x));
+        printf("%d",x);
+    }
+
+
+-----------------------------------------------------------------
+ZADANIE 07
+
+
+#include <stdio.h>
+
+int swap(a,b) {
+  printf("%d,%d",a,b);
+    int x=b;
+    int y=a;
+    a=x;
+    b=y;
+    printf(" %d,%d",a,b);
+    return 1;
+
+
+
+} 
+    int main () {
+        swap(5,4);
+        return 0;
+    }
+    
+    
+-----------------------------------------------------------------
+ZADANIE 08
+-----------------------------------------------------------------
+ZADANIE 09
+
+
+
+#include <stdio.h>
+
+int pierwsza(num){
+  int b,c=0;
+  
+  if(num>0)
+  {
+   b=num;
+   while(b>0)
+      if(num%b==0)
+        {c=c+1;
+         b=b-1;}
+      else
+         b=b-1;
+      ;
+
+  if(c>2)
+    printf("Liczba nie jest liczbą pierwszą");
+  else
+    printf("Liczba jest liczbą pierwszą");
+  }
+    else
+      printf("Błędna wartość");
+  return 0;
+}
+
+
+int sumak(num){
+  int z,x,count=0;
+
+  if(num<0)
+    printf("Podana liczba nie jest naturalna");
+  else
+  {
+    for(x=1;x<=num;x++)
+      {
+        for(z=1;z<=num;z++)
+        {
+          if((z*z + x*x)==num)
+          {
+            printf("Udało się kwadraty liczb: %d %d\n",z,x);
+            count=count+1;
+          }
+        }
+      }
+  }
+      if(count<1)
+          printf("Nie udalo sie znalezc pary liczb");
+  return 0;
+}
+
+
+
+int sumacyfr(num){
+  int suma = 0,i;
+  while (num != 0)
+  {
+    suma += num%10;
+    num /= 10;
+  }
+ 
+  printf("Suma cyfr wynosi : %d", suma);
+  return 0;
+}
+
+
+void exit(){
+  printf("Wychodzę z programu");
+}
+
+int main(void) {
+  unsigned int x,y;
+  
+  int m,n;
+  
+  do{
+  printf("\nCo chcesz zrobić :\n 1 - sprawdzic czy liczba jest pierwsza \n 2 - sprawdzic czy liczba jest suma dwóch kwadratow \n 3 - policzyc sume cyfr liczby \n 4 - zakonczyc dzialanie programu\n");
+  scanf("%d",&m);
+  
+  switch(m)
+
+
+  {case 1:
+   printf("Podaj liczbę naturalną:\n");
+   scanf("%u",&n);
+   pierwsza(n);
+   ;break;
+  
+  case 2: 
+  printf("Podaj liczbę ");
+  scanf("%d",&n);
+  sumak(n);
+  ;break;
+
+
+   
+case 3:
+
+printf("Podaj liczbę: n\n");
+scanf("%d", &n);
+sumacyfr(n);
+;break;
+
+
+    
+case 4:
+exit(void) ;break;
+default: printf("Niepoprawna wartość");break;
+}
+  }
+while(m!=4);
+return 0;
+  }
+  
+
