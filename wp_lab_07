@@ -57,26 +57,32 @@ ZADANIE 03
 
 
 
+
 #include <stdio.h>
 
-int pitagoras(a,b,c) {
-  if(a<0 || b<0 || c<0)
+typedef enum { false, true } bool;
+
+bool pitagoras(a,b,c) {
+  if(a<=0 || b<=0 || c<=0)
   printf("Błędne wartości");
   else
   {
-  if(a*a==b*b+c*c || b*b==c*c+a*a || c*c==a*a+b*b)
-  printf("To liczby pitagorejskie\n");
-  else
-  printf("To nie sa liczby pitagorejskie\n");
+  if(c*c==a*a+b*b)
+  return true;
+  else;
   }
-  return 0;
+  return false;
+  
 }
 
 int main(void) {
-  pitagoras(24,7,25);
-  pitagoras(1,2,3);
+  if(pitagoras(24,7,25)==true)
+    printf("Liczby pitagorejskie");
+  else
+    printf("Liczby nie są pitagorejskie");
   return 0;
 }
+
 
 
 
@@ -97,7 +103,6 @@ int pitagoras(a,b,c) {
   }
 
 int main(void) {
-  pitagoras(24,7,25);
   int x=1,y=1,z=1,n,i;
   printf("Podaj N:");
   scanf("%d",&n);
@@ -111,6 +116,7 @@ for(int z=1; z<n-1; z++)
    {
      pitagoras(x,y,z);    
    }     
+}
 }
   return 0;
 }
@@ -132,17 +138,17 @@ int kwadrat(x) {
 
 
 int main(void) {
-  int x;
+  float x;
   printf("Podaj liczbę x:");
-  scanf("%d",&x);
+  scanf("%f",&x);
   if(x>=1)
   {
-    if(sqrt(kwadrat(x))==x)
+    if(sqrt(kwadrat(x)) == x)
       printf("Równe");
-    if(sqrt(kwadrat(x))>x)
-    printf("Mniejsze");
-    if(sqrt(kwadrat(x))<x)
-    printf("Wieksze");
+    if(sqrt(kwadrat(x)) > x)
+      printf("Mniejsze");
+    if(sqrt(kwadrat(x)) < x)
+      printf("Wieksze");
   }
   else
   printf("niepoprawny x");
@@ -173,23 +179,23 @@ ZADANIE 07
 
 #include <stdio.h>
 
-int swap(a,b) {
-  printf("%d,%d",a,b);
-    int x=b;
-    int y=a;
-    a=x;
-    b=y;
-    printf(" %d,%d",a,b);
-    return 1;
-
-
-
+void swap(int *x, int *y) 
+{ 
+    int temp = *x; 
+    *x = *y; 
+    *y = temp; 
 } 
+  
+ 
     int main () {
-        swap(5,4);
+      int a=5;
+      int b=4;
+      swap(&a,&b);
+      printf(" a:%d b:%d ",a,b);
         return 0;
     }
     
+ 
     
 -----------------------------------------------------------------
 ZADANIE 08
