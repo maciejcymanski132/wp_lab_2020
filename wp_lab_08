@@ -190,6 +190,71 @@ ZADANIE 4
 
 ----------------------------------------------------------
 ZADANIE 5
+
+
+#include <stdio.h>
+
+/// FUNKCJA SORTOWANIA PRZEZ WSTAWIANIE
+void sortowanie_przez_wstawianie(int n, int *tab)
+{
+     int p, j;
+     for(int i=1; i<n; i++)
+     {
+          
+      p = tab[i]; 
+      j = i-1;
+       
+      while(j>=0 && tab[j]>p) 
+      {
+       tab[j+1] = tab[j];
+       --j;
+      }
+        tab[j+1] = p;
+     }     
+}
+
+
+
+int main(void) {
+  int tab1[11] = {1,2,3,7,0,15,3,9,18,6};
+  int w,k,y,i=0 ;
+  
+  printf("Podaj indeks k: ");
+  scanf("%d",&k);
+  sortowanie_przez_wstawianie(k,tab1);
+  
+
+
+
+  ///wyswietlanie tablicy przed wstawieniem
+  for(int x=0;x<11;x++)
+    printf("%d ; ",tab1[x]);
+  printf("\n\n");
+  
+  printf("Podaj wartość w : ");
+  scanf("%d",&w);
+
+  while(i<10)
+  {
+    
+    if(w <= tab1[i+1] && w >= tab1[i-1])
+    { 
+      
+      for(y=10;y>i-1;y--)
+        tab1[y+1]=tab1[y];
+      
+      tab1[i+1]=w;
+      break;
+    }
+   i++;
+  }
+
+
+  ///wyswietlanie tablicy
+  for(int x=0;x<11;x++)
+    printf("%d ; ",tab1[x]);
+  return 0;
+}
 ----------------------------------------------------------
 ZADANIE 1
 ----------------------------------------------------------
