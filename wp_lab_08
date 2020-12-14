@@ -234,7 +234,7 @@ int main(void) {
   printf("Podaj wartość w : ");
   scanf("%d",&w);
 
-  while(i<10)
+  while(i<k)
   {
     
     if(w <= tab1[i+1] && w >= tab1[i-1])
