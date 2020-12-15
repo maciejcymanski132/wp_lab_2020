@@ -1,0 +1,84 @@
+
+---------------------------------------------------------
+ZADANIE_1
+
+1. Napisz program który poprosi użytkownika o podanie jego motta a następnie wyświetli je wraz z informacją o jego długości
+
+
+---------------------------------------------------------
+ZADANIE_2
+
+2.Napisz program który wczyta od użytkownika dwa łańcuchy: <imie> i <nazwisko> oraz zmienna typu int:<wiek>. Program powinien skonstrukować jeden łańcuch budowany następująco
+: <nazwisko , <imie> , <wiek>.
+---------------------------------------------------------
+ZADANIE_3
+
+3. Napisz funkcje, ktora obliczy liczbe samoglosek w danym lancuchu.
+---------------------------------------------------------
+ZADANIE_4
+
+4.Napisz funkcje, ktora zmodyfikuje dany lancuch wedlug zasad:
+-wielkie litery zmieni na male
+-male litery zmieni na kolejna w alfabecie i zapisze jako wielka,litere 'z' zapisez jako 'A
+-cyfry '0'... zapisze o jeden wieksze a cyfre 9 zapisze jako 0
+
+
+---------------------------------------------------------
+ZADANIE_5
+
+5.Napisz funkcje, ktora dla danego lancucha zroci znak ktory wystepuje w nim najczesciej
+
+
+---------------------------------------------------------
+ZADANIE_6
+
+6.Napisz funkcje,ktora dla danych dwoch napisow obliczy ile razy pierwszy z nich wystepuje w drugim.
+
+
+---------------------------------------------------------
+ZADANIE_7
+
+7.Napisz funkcje, ktora dla danego lancucha usunie z niego wszystkie spacje znajdujace sie na jego poczatku i koncu.
+
+
+---------------------------------------------------------
+ZADANIE_8
+
+8.Napisz wlasna funkcje, ktora dla danego lancucha znakow zbudowanego z cyfr zamieni go na liczbe typu int
+
+
+---------------------------------------------------------
+ZADANIE_9
+
+9.Napisz funkcje silnia
+
+---------------------------------------------------------
+ZADANIE_10
+
+10.Napisz rekurencyjnie funkcje nwd
+---------------------------------------------------------
+ZADANIE_11
+
+11.Napisz funkcje ktora rekurencyjnie obliczy sume cyfr danej liczby typu int.
+
+---------------------------------------------------------
+ZADANIE_12
+
+12. Napisz funkcje ktora obliczy liczbe cyfr danej liczby typu int.
+
+---------------------------------------------------------
+ZADANIE_13
+
+13.Napisz rekurencyjna funkcje, ktora dla danego napisu wyznaczy jego rewers
+---------------------------------------------------------
+ZADANIE_14
+
+14.Przeanalizuj szablon 09_rek.c i zaimplementowane w nim funkcje : head, ktora zwraca pierwszy element tablicy oraz tail, ktora zwraca dana tablice bez pierwszego elementu.
+Korzystajac z tych funkcji oraz zakladajac ze przekazywane beda tylko posortowane tablice napisz rekurencyjnie
+- Funkcje czyJestWspolny sprawdzajaca czy w dwoch posortowanych tablicach jest wspolny element
+- ile wspolnych elementow jest w przekazanych tablicach
+- ile jest elementow , ktore wystepuja w pierwszej i nie wystepuja w drugiej
+- ile wspolnych elementow jest w trzech przekazanych tablicach
+- ile elementow jest w pierwszej tablicy a nie ma ich ani w drugiej ani trzeciej
+---------------------------------------------------------
+ZADANIE_DODATKOWE ***************************************
