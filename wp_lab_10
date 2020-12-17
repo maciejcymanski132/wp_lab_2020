@@ -5,15 +5,98 @@ ZADANIE_1
 1. Napisz program który poprosi użytkownika o podanie jego motta a następnie wyświetli je wraz z informacją o jego długości
 
 
+
+#include <stdio.h>
+
+int main(void) {
+
+  char motto[100],c=0;
+
+  printf("Podaj swoje motto: ");
+  fgets(motto, 100, stdin);
+  printf("Oto twoje motto: ");
+  for(int i=0; motto[i] != 0 ; i++)
+  {
+    printf("%c",motto[i]);
+    c++;
+  }
+
+  printf("\nLiczba znaków:%d",c);
+  return 0;
+  }
+  
+  
+
 ---------------------------------------------------------
 ZADANIE_2
 
 2.Napisz program który wczyta od użytkownika dwa łańcuchy: <imie> i <nazwisko> oraz zmienna typu int:<wiek>. Program powinien skonstrukować jeden łańcuch budowany następująco
 : <nazwisko , <imie> , <wiek>.
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+
+  char imie[15],nazwisko[15];
+  int wiek;
+  char finstring[100];
+  
+
+  printf("Podaj swoję imie : ");
+  scanf("%s",imie);
+  printf("Podaj swoje nazwisko: ");
+  scanf("%s",nazwisko);
+
+  printf("Podaj swój wiek: ");
+  scanf("%d",&wiek);
+
+ sprintf(finstring,"Imie : %s ||Nazwisko : %s ||Wiek : %d",imie,nazwisko,wiek);
+
+  for(int i=0; finstring[i] != 0 ; i++)
+    printf("%c",finstring[i]);
+
+ 
+  return 0;
+  }
+
+
+
+
 ---------------------------------------------------------
 ZADANIE_3
 
 3. Napisz funkcje, ktora obliczy liczbe samoglosek w danym lancuchu.
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int main(void) {
+
+char s[100]
+int count=0;
+printf("Podaj swój łańcuch : ");
+fgets(s, 100, stdin);
+
+
+for(int i=0;s[i] != 0;i++)
+  {
+    s[i]=tolower(s[i]);
+    if(s[i] == 'a' || s[i] == 'e' ||s[i] == 'y' ||s[i] == 'o' ||s[i] == 'u' ||s[i] == 'i')
+    count++;
+  }
+printf("\nSamogloski w rownaniu :%d",count);
+
+
+  return 0;
+  }
+  
+  
+
 ---------------------------------------------------------
 ZADANIE_4
 
@@ -21,6 +104,9 @@ ZADANIE_4
 -wielkie litery zmieni na male
 -male litery zmieni na kolejna w alfabecie i zapisze jako wielka,litere 'z' zapisez jako 'A
 -cyfry '0'... zapisze o jeden wieksze a cyfre 9 zapisze jako 0
+
+
+
 
 
 ---------------------------------------------------------
