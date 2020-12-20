@@ -152,11 +152,101 @@ ZADANIE_5
 
 
 
+#include <stdio.h>
+
+void count(char *tab){
+
+  int array[255] = {0};
+
+  int i, max, index;
+
+  for(i = 0; tab[i] != 0; i++)
+  { 
+    ++array[tab[i]];
+  } 
+
+
+  max = array[0];
+  index = 0;
+  for(i = 0; tab[i] != 0; i++)
+  {
+    if( array[tab[i]] > max)
+  {
+    max = array[tab[i]];
+    index = i;
+  }
+}
+
+printf("Najczesciej wystepujacy znak:: %c \n", tab[index]);
+
+}
+
+
+int main()
+{
+
+char s[100];
+
+printf("Podaj swój łańcuch : ");
+fgets(s, 100, stdin);
+
+count(s);
+
+return 0;
+}
 
 ---------------------------------------------------------
 ZADANIE_6
 
 6.Napisz funkcje,ktora dla danych dwoch napisow obliczy ile razy pierwszy z nich wystepuje w drugim.
+
+#include <stdio.h>
+#include <string.h>
+
+char s[100], a[100];
+
+int count = 0, count1 = 0;
+
+int main()
+
+{
+int i, j, l, l1, l2;
+
+printf("\nPodaj swój łańcuch zakończony spacją : ");
+scanf("%[^\n]s", a);
+
+l1 = strlen(a);
+
+printf("\nPodaj swój subset : ");
+
+scanf(" %[^\n]s", s);
+
+l2 = strlen(s);
+
+  for (i = 0; i < l1;)
+    {
+      j = 0;
+      count = 0;
+
+      while (a[i] == s[j])
+      {
+        count++;
+        i++;
+        j++;
+      }
+      if (count == l2)
+      {
+        count1++;                                   
+        count = 0;
+      } 
+      else
+        i++;
+      }    
+printf("|%s| łańcuch pojawia się  %d razy w |%s|", s, count1, a);
+
+return 0 ;
+}
+
 
 
 ---------------------------------------------------------
@@ -165,10 +255,50 @@ ZADANIE_7
 7.Napisz funkcje, ktora dla danego lancucha usunie z niego wszystkie spacje znajdujace sie na jego poczatku i koncu.
 
 
+
+
+
+
+
 ---------------------------------------------------------
 ZADANIE_8
 
 8.Napisz wlasna funkcje, ktora dla danego lancucha znakow zbudowanego z cyfr zamieni go na liczbe typu int
+
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+
+int main()
+
+{
+int i,n[50];
+char a[100];
+int number=0;
+printf("\nPodaj swój łańcuch: ");
+fgets(a,100,stdin);
+
+
+int len=0;
+
+for(i=0;a[i] != 0; i++)
+ {
+  a[i]=a[i]-'0';
+  n[i] = a[i];
+  len++;
+ }
+
+for(i=0;i<len-1;i++)
+ {
+  number = n[i] * (pow(10,(len-2)-i)) + number;
+ }
+
+
+printf("\n\nTwoja liczba w formacie int : %d",number);
+ return 0;
+}
 
 
 ---------------------------------------------------------
@@ -176,10 +306,58 @@ ZADANIE_9
 
 9.Napisz funkcje silnia
 
+
+#include <stdio.h>
+
+int silnia(a){
+  if(a<2)
+        return 1; //silnia z 0 i 1 wynosi 1
+return a * silnia(a-1);
+
+}
+
+int main()
+{
+printf("%d",silnia(6));
+ return 0;
+}
+
+
+
 ---------------------------------------------------------
 ZADANIE_10
 
 10.Napisz rekurencyjnie funkcje nwd
+
+
+#include <stdio.h>
+
+int nwd(int a,int b){
+  int x,y;
+  if(a%b==0) 
+    return b;
+  x=b;
+  y=a%b;
+    return nwd(x,y);
+  
+
+}
+
+
+int main()
+{
+int a,b;
+
+printf("Podaj liczbę a: ");
+scanf("%d",&a);
+printf("Podaj liczbę b: ");
+scanf("%d",&b);
+
+printf("%d",nwd(a,b));
+ return 0;
+}
+
+
 ---------------------------------------------------------
 ZADANIE_11
 
