@@ -363,15 +363,99 @@ ZADANIE_11
 
 11.Napisz funkcje ktora rekurencyjnie obliczy sume cyfr danej liczby typu int.
 
+#include <stdio.h>
+
+int suma(int a){
+
+ 
+    if(a == 0)
+        return 0;
+    return ((a % 10) + suma(a / 10));
+}
+  
+
+
+int main()
+{
+int a,b;
+
+printf("Podaj liczbę a: ");
+scanf("%d",&a);
+
+printf("Suma cyfr : %d",suma(a));
+ return 0;
+}
+
+
 ---------------------------------------------------------
 ZADANIE_12
 
 12. Napisz funkcje ktora obliczy liczbe cyfr danej liczby typu int.
 
+#include <stdio.h>
+
+int int_len(int value){
+  int l=!value;
+  while(value){ 
+    l++; 
+    value/=10; }
+  return l;
+}
+
+
+
+int main()
+{
+int a,b;
+printf("Podaj liczbę a: ");
+scanf("%d",&a);
+
+printf("Liczba cyfr : %d",int_len(a));
+ return 0;
+}
+
+
 ---------------------------------------------------------
 ZADANIE_13
 
 13.Napisz rekurencyjna funkcje, ktora dla danego napisu wyznaczy jego rewers
+
+
+#include <stdio.h>
+#include <string.h>
+
+
+
+void reverse(char *x, int pocz, int konc)
+{
+    char ch;
+    if (pocz >= konc)
+       return;
+ 
+    ch = *(x+pocz);
+    *(x+pocz) = *(x+konc);
+    *(x+konc) = ch;
+
+    return reverse(x, ++pocz, --konc);
+}
+
+
+int main()
+{
+    char napis[150];
+    printf("Podaj swoj napis:");
+    scanf("%[^\n]s",napis);
+ 
+    
+    reverse(napis, 0, strlen(napis)-1);
+    printf("\nOdwrocony napis : %s",napis);
+ 
+    return 0;
+}
+ 
+ 
+ 
+ 
 ---------------------------------------------------------
 ZADANIE_14
 
@@ -382,5 +466,11 @@ Korzystajac z tych funkcji oraz zakladajac ze przekazywane beda tylko posortowan
 - ile jest elementow , ktore wystepuja w pierwszej i nie wystepuja w drugiej
 - ile wspolnych elementow jest w trzech przekazanych tablicach
 - ile elementow jest w pierwszej tablicy a nie ma ich ani w drugiej ani trzeciej
+
+
+
+
+
+
 ---------------------------------------------------------
 ZADANIE_DODATKOWE ***************************************
