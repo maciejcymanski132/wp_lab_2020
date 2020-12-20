@@ -256,6 +256,61 @@ ZADANIE_7
 
 
 
+#include <stdio.h>
+
+
+void przytnij(char * str)
+{
+  int index, i;
+  index = 0;
+
+
+
+  while(str[index] == ' ' || str[index] == '\t' || str[index]  == '\n')
+  {
+      index++;
+  }
+  i = 0; 
+    
+
+  while(str[i + index] != '\0')
+  {
+    str[i] = str[i + index];
+    i++;
+  }
+  
+  str[i] = '\0';
+  i = 0;
+  index = -1;
+
+  
+  while(str[i] != '\0')
+  {
+    if(str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+    {
+      index = i;
+    }
+
+    i++;
+  }
+  str[index + 1] = '\0';
+}
+
+
+int main()
+{
+  char str[100];
+
+  printf("Podaj swój napis: ");
+  scanf("%[^\n]s",str);
+
+  printf("\nNapis przed wyrównaniem: \n'%s'", str);
+
+  przytnij(str);
+  printf("\n\nNapis po wyrównaniu: \n'%s'", str);
+  return 0;
+}
+
 
 
 
