@@ -153,7 +153,68 @@ int main(){
 ------------------------------------------------------
 ZADANIE_4
 
+#include<stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
+int main(){
+   int x,y,min=1000,sum=0;
+    printf("Podaj ilosc wierszy : ");
+    scanf("%d",&x);
+    printf("Podaj ilosc kolumn : ");
+    scanf("%d",&y);
+   
+   srand(time(NULL));
+   
+   int tab[x][y];
+   
+   int i, j,a,b;
+   for(i=0; i<x; i++) {
+      for(j=0;j<y;j++) {
+         tab[i][j]=rand()%3;
+      }
+   }
+  
+   printf("Dwuwymiarowa tablica :\n");
+   for(i=0; i<x; i++) 
+   {
+      for(j=0;j<y;j++) 
+      {
+         printf("%d ", tab[i][j]);
+      }
+      printf("\n");    
+   }
+   
+  
+for(i=0; i<x-1; i++) 
+   {
+      for(j=0;j<y-1;j++) 
+      {
+        sum=tab[i][j]
+        +tab[i][j+1]
+        +tab[i+1][j]
+        +tab[i+1][j+1]
+        ;
+
+         if(sum<min)
+         {
+          min=sum;
+          a=i;
+          b=j;
+         }
+      }
+    sum=0;
+   }
+      
+
+
+      printf("\n"); 
+   
+   
+  printf("Najmniejsza suma %d w wierszu o indeksie \nWiersz:%d\nKolumna:%d\n(lewy górny róg podzbioru)",min,a,b);
+
+   return 0;
+}
 
 
 ------------------------------------------------------
