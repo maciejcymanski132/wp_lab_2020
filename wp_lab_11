@@ -261,12 +261,19 @@ int main(){
       printf("\n");    
    }
   
+  
    for(i=2; i<x-2; i++) 
    {
       for(j=2;j<y-2;j++) 
       {
         b=i;
         v=j;
+        
+        
+        ///Za pomocą kilku pętli while sprawdzam czy slowo[m] jest taki sam jak tab[i][j] jesli tak dodaje 1 do m 
+        ///Jesli m bedzie rowne =3 oznacza to ze slowo los znajduje sie w programie zapisane w sposob dany dla petli 
+        
+        //Sprawdzam czy pod skosem widnieje hasło los
         while(haslo[m]==tab[b][v])
          {
           m++;
@@ -281,11 +288,10 @@ int main(){
         m=0;
         b=i;
         v=j;
-
+         //Sprawdzam czy haslo los widnieje w pionie
          while(haslo[m]==tab[b][v])
          {
           m++;
-          b=i;
           b++;
           if(m==3)
             {
@@ -297,7 +303,7 @@ int main(){
         m=0;
         b=i;
         v=j;
-
+        //Sprawdzam czy haslo los widnieje w poziomie
         while(haslo[m]==tab[b][v])
          {
           m++;
@@ -312,7 +318,7 @@ int main(){
          m=0;
         b=i;
         v=j;
-        
+        //Sprawdzam czy haslo los widnieje wspak
         while(haslo[m]==tab[b][v])
          {
           m++;
@@ -328,7 +334,7 @@ int main(){
         m=0;
         b=i;
         v=j;
-
+         //Sprawdzam czy haslo los widnieje wspak w pionie
         while(haslo[m]==tab[b][v])
          
          {
@@ -347,7 +353,7 @@ int main(){
    }
    }
   
-  
+  /// W kazdej petli while jezeli m osiagnie wartosc 3 program przerywa petle i ustawia wartosc tr na 1
   if(tr==1)
     printf("Słowo los znajduje sie w tablicy");
   else
