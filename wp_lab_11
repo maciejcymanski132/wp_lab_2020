@@ -219,6 +219,141 @@ for(i=0; i<x-1; i++)
 
 ------------------------------------------------------
 ZADANIE_5
+
+#include<stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main(){
+ 
+   
+
+   char haslo[]="los";
+   int tr,m=0,b,v,w,q;
+
+  int x,y,min=0,sum=0;
+    printf("Podaj ilosc wierszy : ");
+    x=10;
+    printf("Podaj ilosc kolumn : ");
+    y=10;
+   
+   srand(time(NULL));
+   
+   char tab[x][y];
+   
+   int i, j,a;
+   for(i=0; i<x; i++) {
+      for(j=0;j<y;j++) {
+         sprintf(&tab[i][j],"%c",97 + rand()%25);
+      }
+   }
+  
+
+   printf("Dwuwymiarowa tablica :\n");
+   for(i=0; i<x; i++) 
+   {
+      for(j=0;j<y;j++) 
+      {
+         printf("%c  ", tab[i][j]);
+         
+      }
+      printf("\n");    
+   }
+  
+   for(i=2; i<x-2; i++) 
+   {
+      for(j=2;j<y-2;j++) 
+      {
+        b=i;
+        v=j;
+        while(haslo[m]==tab[b][v])
+         {
+          m++;
+          b++;
+          v++;
+          if(m==3)
+            {
+            tr=1;
+            break;
+            }
+         }
+        m=0;
+        b=i;
+        v=j;
+
+         while(haslo[m]==tab[b][v])
+         {
+          m++;
+          b=i;
+          b++;
+          if(m==3)
+            {
+            tr=1;
+            break;
+            }
+         }
+        
+        m=0;
+        b=i;
+        v=j;
+
+        while(haslo[m]==tab[b][v])
+         {
+          m++;
+          v++;
+          if(m==3)
+            {
+            tr=1;
+            break;
+            }
+         }
+
+         m=0;
+        b=i;
+        v=j;
+        
+        while(haslo[m]==tab[b][v])
+         {
+          m++;
+          b=i;
+          v--;
+          if(m==3)
+          {
+            tr=1;
+            break;
+          }
+         }
+        
+        m=0;
+        b=i;
+        v=j;
+
+        while(haslo[m]==tab[b][v])
+         
+         {
+          m++;
+          b=i;
+          b--;
+          if(m==3)
+            {
+            tr=1;
+            break;
+            }
+         }       
+        m=0;
+        b=i;
+        v=j;
+   }
+   }
+  
+  
+  if(tr==1)
+    printf("Słowo los znajduje sie w tablicy");
+  else
+  printf("Slowo nie znajduje się w tablicy");
+   return 0;
+}
 ------------------------------------------------------
 ZADANIE_6
 ------------------------------------------------------
