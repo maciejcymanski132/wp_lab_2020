@@ -19,7 +19,7 @@ int main(){
    int i, j;
    for(i=0; i<x; i++) {
       for(j=0;j<y;j++) {
-         tab[i][j]=rand()%20;
+         tab[i][j]=rand()%3;
       }
    }
   
