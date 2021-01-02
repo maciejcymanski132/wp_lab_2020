@@ -362,6 +362,164 @@ int main(){
 }
 ------------------------------------------------------
 ZADANIE_6
+
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+
+struct info {
+
+  char name[21];
+  char author[21];
+  int year;
+
+} book[21];
+
+void add(int n);
+void del(int n);
+void search_year(int n);
+void search_author(int n);
+void buffer(FILE *fp);
+
+
+void add(int n)  {
+
+  printf("\nPodaj tytuł:\n");
+  scanf("%s", book[n].name);
+  buffer(stdin);
+
+  printf("\nPodaj autora:\n");
+  scanf("%s", book[n].author);
+  buffer(stdin);
+
+  printf("\nPodaj rok wydania:\n");
+  scanf("%d", &book[n].year);
+  buffer(stdin);
+
+
+}
+
+void del(int n) {
+
+  char zero[21] = {"\0"};
+  char delet[21];
+
+  printf("Podaj tytuł:\n");
+  scanf("%s", delet);
+
+    for(int i = 0; i<=n; i++) {
+
+          if(strcmp(delet, book[i].name) == 0) {
+              strcpy(book[i].name, zero);
+              strcpy(book[i].author, zero);
+              book[i].year = 0;
+              book[i].year = 0;
+          }
+          
+    }
+
+
+}
+
+
+
+void search_year(int n) {
+
+  int y;
+  printf("Podaj rok:\n");
+  scanf("%d", &y);
+
+    for(int i = 0; i<=n; i++) {
+      if(y==book[i].year) {
+
+        printf("\nTytuł książki : %s\nAutor książki : %s\n\n", book[i].name,book[i].author);
+      }
+      else
+        printf("Nie znaleziono.");
+    }
+
+}
+
+
+
+void search_author(int n) {
+
+  char a[21];
+  printf("Podaj autora:\n");
+  scanf("%s", a);
+
+    for(int i = 0; i<=n; i++) {
+      if(strcmp(a, book[i].author)==0) {
+
+        printf("\nTytuł książki : %s\nData wydania książki : %d\n\n", book[i].name,book[i].year);
+      }
+      else
+      printf("Nie znaleziono.");
+    }
+
+}
+
+
+
+void buffer(FILE *fp)
+{
+    int x;
+    while((x = fgetc(fp)) != '\n' && x!=EOF);
+}
+
+
+
+
+int main() {
+  int n=0;
+
+
+while(1) {
+  printf("Wybierz jedno z działań :\n1-Dodaj książkę\n2-Usuń książkę\n3-Wyszukaj po roku\n4-Wyszukaj po autorze\n");
+  int opcja;
+  printf("\n");
+  scanf("%d", &opcja);
+  
+
+
+
+  switch(opcja) {
+    case 1: 
+      if(n>20)  
+        printf("Maksymalna ilość ksiązek to 20.\n");
+      
+      else {
+        add(n);
+        n++;
+        
+      } break;
+
+    case 2:
+      del(n);
+      n--;
+      break;
+
+    case 3:
+      search_year(n);
+      break;
+    
+    case 4:
+      search_author(n);
+      break;
+    
+    default:
+      printf("Wybierz opcję jeszcze raz.\n");
+
+    printf("\n");
+  }
+
+
+}
+return 0;
+}
+
+
 ------------------------------------------------------
 ZADANIE_7
 ------------------------------------------------------
