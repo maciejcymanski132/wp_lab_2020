@@ -578,9 +578,7 @@ int NWW(int a, int b);
 int main()
 {
     num liczba1, liczba2, liczba3, liczba4, liczba5, wynik;
-    //program zaklada, że jesli liczba jest ujemna, to znak zawiera się w liczniku
 
-    //kazda liczbe przedstawiam jako licznik i mianownik
     liczba1.licznik=1, liczba1.mianownik=2;
     liczba2.licznik=1, liczba2.mianownik=3;
     liczba3.licznik=7, liczba3.mianownik=2;
@@ -622,10 +620,10 @@ num skracanie(num liczba)
 
 num dzielenie(num liczba1, num liczba2)
 {
-    //korzystam z wlasnosci dzielenia jako mnozenia przez liczbe odwrotna
+
     num temp;
 
-    //przenosze znak do mianownika, aby pozniej znalazl sie znowu w liczniku
+
     if(liczba2.licznik<0)
     {
         liczba2.licznik*=(-1);
@@ -643,11 +641,11 @@ num suma(num liczba1, num liczba2)
     liczba2=skracanie(liczba2);
     int NWWwynik=NWW(liczba1.mianownik, liczba2.mianownik);
     
-    //zmiana licznika i mianownika, aby mozna bylo je dodac
+
     liczba1=zmienmianownik(liczba1, NWWwynik);
     liczba2=zmienmianownik(liczba2, NWWwynik);
 
-    //obliczanie i zwracanie skroconej sumy
+
     wynik.licznik=liczba1.licznik+liczba2.licznik;
     wynik.mianownik=NWWwynik;
     return skracanie(wynik);
