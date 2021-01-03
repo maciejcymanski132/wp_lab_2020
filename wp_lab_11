@@ -297,31 +297,31 @@ ZADANIE_6
 
 struct info {
 
-  char name[21];
-  char author[21];
-  int year;
+  char nazwa[21];
+  char autor[21];
+  int rok;
 
 } book[21];
 
 void add(int n);
 void del(int n);
-void search_year(int n);
-void search_author(int n);
+void szukajroku(int n);
+void szukajautora(int n);
 void buffer(FILE *fp);
 
 
 void add(int n)  {
 
   printf("\nPodaj tytuł:\n");
-  scanf("%s", book[n].name);
+  scanf("%s", book[n].nazwa);
   buffer(stdin);
 
   printf("\nPodaj autora:\n");
-  scanf("%s", book[n].author);
+  scanf("%s", book[n].autor);
   buffer(stdin);
 
   printf("\nPodaj rok wydania:\n");
-  scanf("%d", &book[n].year);
+  scanf("%d", &book[n].rok);
   buffer(stdin);
 
 
@@ -337,11 +337,11 @@ void del(int n) {
 
     for(int i = 0; i<=n; i++) {
 
-          if(strcmp(delet, book[i].name) == 0) {
-              strcpy(book[i].name, zero);
-              strcpy(book[i].author, zero);
-              book[i].year = 0;
-              book[i].year = 0;
+          if(strcmp(delet, book[i].nazwa) == 0) {
+              strcpy(book[i].nazwa, zero);
+              strcpy(book[i].autor, zero);
+              book[i].rok = 0;
+              book[i].rok = 0;
           }
           
     }
@@ -351,16 +351,16 @@ void del(int n) {
 
 
 
-void search_year(int n) {
+void szukajroku(int n) {
 
   int y;
   printf("Podaj rok:\n");
   scanf("%d", &y);
 
     for(int i = 0; i<=n; i++) {
-      if(y==book[i].year) {
+      if(y==book[i].rok) {
 
-        printf("\nTytuł książki : %s\nAutor książki : %s\n\n", book[i].name,book[i].author);
+        printf("\nTytuł książki : %s\nAutor książki : %s\n\n", book[i].nazwa,book[i].autor);
       }
       else
         printf("Nie znaleziono.");
@@ -370,16 +370,16 @@ void search_year(int n) {
 
 
 
-void search_author(int n) {
+void szukajautora(int n) {
 
   char a[21];
   printf("Podaj autora:\n");
   scanf("%s", a);
 
     for(int i = 0; i<=n; i++) {
-      if(strcmp(a, book[i].author)==0) {
+      if(strcmp(a, book[i].autor)==0) {
 
-        printf("\nTytuł książki : %s\nData wydania książki : %d\n\n", book[i].name,book[i].year);
+        printf("\nTytuł książki : %s\nData wydania książki : %d\n\n", book[i].nazwa,book[i].rok);
       }
       else
       printf("Nie znaleziono.");
@@ -428,11 +428,11 @@ while(1) {
       break;
 
     case 3:
-      search_year(n);
+      szukajroku(n);
       break;
     
     case 4:
-      search_author(n);
+      szukajautora(n);
       break;
     
     default:
@@ -445,7 +445,6 @@ while(1) {
 }
 return 0;
 }
-
 
 ------------------------------------------------------
 ZADANIE_7
@@ -556,7 +555,141 @@ void show()
 ------------------------------------------------------
 ZADANIE_9
 
+#include <stdio.h>
 
+typedef struct
+{
+    int mianownik;
+    int licznik;
+}num;
+
+
+num zmienmianownik(num liczba, int nowymianownik);
+num skracanie(num liczba);
+num mnozenie(num liczba1, num liczba2);
+num dzielenie(num liczba1, num liczba2);
+num suma(num liczba1, num liczba2);
+num odejmowanie(num liczba1, num liczba2);
+int NWD(int a, int b);
+int NWW(int a, int b);
+
+
+
+int main()
+{
+    num liczba1, liczba2, liczba3, liczba4, liczba5, wynik;
+    //program zaklada, że jesli liczba jest ujemna, to znak zawiera się w liczniku
+
+    //kazda liczbe przedstawiam jako licznik i mianownik
+    liczba1.licznik=1, liczba1.mianownik=2;
+    liczba2.licznik=1, liczba2.mianownik=3;
+    liczba3.licznik=7, liczba3.mianownik=2;
+    liczba4.licznik=2, liczba4.mianownik=3;
+    liczba5.licznik=10, liczba5.mianownik=3;
+    wynik=odejmowanie(mnozenie(suma(liczba1, liczba2), dzielenie(liczba3, liczba4)), liczba5);
+    printf("%d/%d\n", wynik.licznik, wynik.mianownik);
+    return 0;
+}
+
+
+
+num mnozenie(num liczba1, num liczba2)
+{
+    num wynik;
+    liczba1=skracanie(liczba1);
+    liczba2=skracanie(liczba2);
+    wynik.licznik=liczba1.licznik*liczba2.licznik;
+    wynik.mianownik=liczba1.mianownik*liczba2.mianownik;
+    return skracanie(wynik);
+}
+
+
+num zmienmianownik(num liczba, int nowymianownik)
+{
+    liczba.licznik=liczba.licznik*nowymianownik/liczba.mianownik;
+    liczba.mianownik= nowymianownik;
+    return liczba;
+}
+
+
+num skracanie(num liczba)
+{
+    int NWDwynik=NWD(liczba.licznik, liczba.mianownik);
+    liczba.licznik/=NWDwynik;
+    liczba.mianownik/=NWDwynik;
+    return liczba;
+}
+
+num dzielenie(num liczba1, num liczba2)
+{
+    //korzystam z wlasnosci dzielenia jako mnozenia przez liczbe odwrotna
+    num temp;
+
+    //przenosze znak do mianownika, aby pozniej znalazl sie znowu w liczniku
+    if(liczba2.licznik<0)
+    {
+        liczba2.licznik*=(-1);
+        liczba2.mianownik*=(-1);
+    }
+    temp.licznik=liczba2.mianownik;
+    temp.mianownik=liczba2.licznik;
+    return mnozenie(liczba1, temp);
+}
+
+num suma(num liczba1, num liczba2)
+{
+    num wynik;
+    liczba1=skracanie(liczba1);
+    liczba2=skracanie(liczba2);
+    int NWWwynik=NWW(liczba1.mianownik, liczba2.mianownik);
+    
+    //zmiana licznika i mianownika, aby mozna bylo je dodac
+    liczba1=zmienmianownik(liczba1, NWWwynik);
+    liczba2=zmienmianownik(liczba2, NWWwynik);
+
+    //obliczanie i zwracanie skroconej sumy
+    wynik.licznik=liczba1.licznik+liczba2.licznik;
+    wynik.mianownik=NWWwynik;
+    return skracanie(wynik);
+}
+
+num odejmowanie(num liczba1, num liczba2)
+{
+    liczba1=skracanie(liczba1);
+    liczba2=skracanie(liczba2);
+    int NWWwynik=NWW(liczba1.mianownik, liczba2.mianownik);
+    num wynik;
+    liczba1=zmienmianownik(liczba1, NWWwynik);
+    liczba2=zmienmianownik(liczba2, NWWwynik);
+    wynik.licznik=liczba1.licznik-liczba2.licznik;
+    wynik.mianownik=NWWwynik;
+    return skracanie(wynik);
+}
+
+int NWD(int a, int b)
+{
+    if(a<0)
+    {
+        return NWD(a*(-1), b);
+    }
+    else
+    {
+        if(a>b) return NWD(a-b, b);
+        else if(b>a) return NWD(a, b-a);
+        else return a;
+    }
+    
+}
+int NWW(int a, int b)
+{
+    int originA=a, originB=b;
+    while(a!=b)
+    {
+        if(b>a) a+=originA;
+        else b+=originB;
+    }
+    return a;
+}
 
 ------------------------------------------------------
 ZADANIE_DODATKOWE
