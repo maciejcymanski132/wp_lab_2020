@@ -1,0 +1,178 @@
+------------------------------------------------------------------------
+ZADANIE_1
+
+
+#include<stdio.h>
+ 
+#include<stdlib.h>
+  
+#define Size 100 
+  
+int Top=-1, inp_array[Size];
+void push();
+void pop();
+void show();
+void top();
+void isempty();
+void save();
+void read();
+int i=1;
+
+int main()
+{
+    int choice;
+
+    while(1)    
+    {
+        printf("\nWybierz jedno z działań");
+        printf("\n1.Push\n2.Pop\n3.Show\n4.Is Stack empty?\n5.Zapisz w pliku txt\n6.Odczytaj zawartosc ostatniego zapisu\n7.Wyjdz z programu");
+        printf("\n\nWprowadz swoj wybor");
+        scanf("%d",&choice);
+         
+        switch(choice)
+        {
+            case 1: push();
+                    break;
+            case 2: pop();
+                    break;
+            case 3: show();
+                    break;
+            case 4: top();
+                    break;
+            case 5: save();
+                    break;
+            case 6: read();
+                    break;
+            case 7: exit(0);
+             
+            default: printf("\nBłędny input");
+        }
+    }
+}
+  
+void push()
+{
+    int x;
+     
+    if(Top==Size-1)
+    {
+        printf("\nMaksymalna ilość elementów");
+    }
+    else
+    {
+        printf("\nPodaj element który chcesz dodać:");
+        scanf("%d",&x);
+        Top=Top+1;
+        inp_array[Top]=x;
+    }
+}
+  
+void top()
+{
+  if(Top==-1)
+  printf("Stos jest pusty");
+  else
+  printf("Stos nie jest pusty");
+}
+
+
+
+void pop()
+{
+    if(Top==-1)
+    {
+        printf("\nBrak elementów do usunięcia");
+    }
+    else
+    {
+        printf("\nUsunięty element:  %d",inp_array[Top]);
+        Top=Top-1;
+    }
+}
+  
+void show()
+{
+     
+     
+    if(Top==-1)
+    {
+        printf("\nStos jest pusty");
+    }
+    else
+    {
+        printf("\nElementy obecne w stosie: \n");
+        for(int i=Top; i>=0 ;--i)
+            printf("%d\n",inp_array[i]);
+    }
+}
+
+void save(){
+
+FILE *fptr; 
+
+fptr = fopen("save.txt", "a+"); 
+    if (fptr == NULL) 
+    { 
+        printf("Brak pliku \n"); 
+        exit(0); 
+    } 
+    fprintf(fptr,"Zapis %d:\n",i);
+    i++;
+    for(int i=Top; i>=0 ;--i)
+            fprintf(fptr,"%d\n",inp_array[i]);
+    fprintf(fptr,"\n");
+    fclose(fptr); 
+}
+
+void read(){
+
+    FILE *fptr; 
+  
+    char c; 
+   
+
+    fptr = fopen("save.txt", "r"); 
+    if (fptr == NULL) 
+    { 
+        printf("Brak pliku\n"); 
+        exit(0); 
+    } 
+  
+    c = fgetc(fptr); 
+    while (c != EOF) 
+    { 
+        printf ("%c", c); 
+        c = fgetc(fptr); 
+    } 
+  
+    fclose(fptr); 
+    
+}
+
+
+------------------------------------------------------------------------
+ZADANIE_2
+
+
+
+
+------------------------------------------------------------------------
+ZADANIE_1
+
+------------------------------------------------------------------------
+ZADANIE_1
+
+------------------------------------------------------------------------
+ZADANIE_1
+
+------------------------------------------------------------------------
+ZADANIE_1
+
+------------------------------------------------------------------------
+ZADANIE_1
+
+------------------------------------------------------------------------
+ZADANIE_1
+
+
+
