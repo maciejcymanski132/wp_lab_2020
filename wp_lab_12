@@ -177,6 +177,7 @@ int main(void) {
   FILE *fp;
   int i=0;
   int count=0;
+  int count2=0;
   char c;
   double suma=0;
   double srednia_obj=0;
@@ -229,13 +230,14 @@ int main(void) {
       printf("object name:%s  ",obj[i].name);
       printf("object volume: %.02f\n",atof(obj[i].volume));
       suma=suma+atof(obj[i].volume);
+      count2++;
 
 
     }
 
   }
 
-  srednia_obj= suma/count;
+  srednia_obj= suma/count2;
   printf("Oto srednia objetosc cial o tym ksztalcie : %f",srednia_obj);
   fclose(fp);
   return 0;
@@ -346,17 +348,30 @@ ZADANIE_4
 
 
 
+
 ------------------------------------------------------------------------
 ZADANIE_5
+
+
+
 
 ------------------------------------------------------------------------
 ZADANIE_6
 
+
+
+
 ------------------------------------------------------------------------
 ZADANIE_7
 
+
+
+
 ------------------------------------------------------------------------
 ZADANIE_8
+
+
+
 
 
 
