@@ -154,25 +154,209 @@ void read(){
 ZADANIE_2
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+struct object{
+  char name[15];
+  char  radius[15];
+  char volume[15];
+  char mass[15];
+  char density[15];
+  char surface_gravity[15];
+  char typeofobject[20];
+  char shape[15];
+}obj[70];
+
+
+int main(void) {
+  
+  char x[10];
+  FILE *fp;
+  int i=0;
+  int count=0;
+  char c;
+  double suma=0;
+  double srednia_obj=0;
+
+
+  FILE *fp1;
+  fp=fopen("solar_12.txt","rb+");
+
+
+  for (c = fgetc(fp); c != EOF; c = fgetc(fp)) 
+        if (c == '\n') 
+            count = count + 1; 
+            
+  rewind(fp);
+
+  
+  while((c=fgetc(fp)) != EOF)
+      if(c == ',')
+        {
+          fseek(fp, -1, SEEK_CUR);
+          fprintf(fp,".");
+        }
+
+
+  rewind(fp);
+  
+  
+  for(int i = 0; i < count+1; i++)
+  {
+    fscanf(fp,"%s %s %s %s %s %s %s %s",
+    obj[i].name,
+    obj[i].radius,
+    obj[i].volume,
+    obj[i].mass,
+    obj[i].density,
+    obj[i].surface_gravity,
+    obj[i].typeofobject,
+    obj[i].shape);
+  }
+  rewind(fp);
+
+  printf("Podaj kształt dla którego chcesz obliczyć średnią objętość :\n");
+  scanf("%s",x);
+
+ 
+  for(int i = 1; i < count+1; i++)
+  {
+    if(strcmp(obj[i].shape,x)==0)
+    {
+      printf("object name:%s  ",obj[i].name);
+      printf("object volume: %.02f\n",atof(obj[i].volume));
+      suma=suma+atof(obj[i].volume);
+
+
+    }
+
+  }
+
+  srednia_obj= suma/count;
+  printf("Oto srednia objetosc cial o tym ksztalcie : %f",srednia_obj);
+  fclose(fp);
+  return 0;
+
+}
+
+------------------------------------------------------------------------
+ZADANIE_3
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+struct object{
+  char name[15];
+  char  radius[15];
+  char volume[15];
+  char mass[15];
+  char density[15];
+  char surface_gravity[15];
+  char typeofobject[20];
+  char shape[15];
+}obj[70];
+
+
+int main(void) {
+  
+
+  FILE *fp;
+  FILE *fp1;
+  int i=0;
+  int count=0;
+  char c;
+
+
+  fp=fopen("solar_12.txt","rb+");
+  fp1=fopen("planets.txt","rb+");
+
+  for (c = fgetc(fp); c != EOF; c = fgetc(fp)) 
+        if (c == '\n') 
+            count++;
+       
+
+  rewind(fp);
+
+
+
+  
+  while((c=fgetc(fp)) != EOF)
+      if(c == ',')
+        {
+          fseek(fp, -1, SEEK_CUR);
+          fprintf(fp,".");
+        }
+
+
+
+  rewind(fp);
+  
+  
+  for(int i = 0; i < count+1; i++)
+  {
+    fscanf(fp,"%s %s %s %s %s %s %s %s",
+    obj[i].name,
+    obj[i].radius,
+    obj[i].volume,
+    obj[i].mass,
+    obj[i].density,
+    obj[i].surface_gravity,
+    obj[i].typeofobject,
+    obj[i].shape);
+  }
+  rewind(fp);
+
+ char x[]="Planet";
+ printf("count : %d",count);
+
+  fprintf(fp1,"Body	radius(km)	Volume(10^9km^3)	Mass(10^21kg)	Density(g/cm^3)	Surface_gravity(m/s^2)	Type_of_object	Shape\n");
+  for(int i = 1; i < count+1; i++)
+  {
+    if(strcmp(obj[i].typeofobject,x)==0)
+    {
+      printf("object name:%s  ",obj[i].name);
+      fprintf(fp1,"%s %s %s %s %s %s %s %s\n",
+        obj[i].name,
+        obj[i].radius,
+        obj[i].volume,
+        obj[i].mass,
+        obj[i].density,
+        obj[i].surface_gravity,
+        obj[i].typeofobject,
+        obj[i].shape);
+
+
+    }
+
+  }
+
+
+  fclose(fp);
+  return 0;
+
+}
+
+------------------------------------------------------------------------
+ZADANIE_4
+
 
 
 ------------------------------------------------------------------------
-ZADANIE_1
+ZADANIE_5
 
 ------------------------------------------------------------------------
-ZADANIE_1
+ZADANIE_6
 
 ------------------------------------------------------------------------
-ZADANIE_1
+ZADANIE_7
 
 ------------------------------------------------------------------------
-ZADANIE_1
-
-------------------------------------------------------------------------
-ZADANIE_1
-
-------------------------------------------------------------------------
-ZADANIE_1
+ZADANIE_8
 
 
 
