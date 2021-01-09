@@ -2,151 +2,207 @@
 ZADANIE_1
 
 
-#include<stdio.h>
- 
+#include<time.h>
 #include<stdlib.h>
-  
-#define Size 100 
-  
-int Top=-1, inp_array[Size];
-void push();
-void pop();
-void show();
-void top();
-void isempty();
+#include<stdio.h>
+#include<string.h>
+
+struct info {
+
+  char nazwa[21];
+  char autor[21];
+  int rok;
+
+} book[21];
+
+void add(int n);
+void del(int n);
+void szukajroku(int n);
+void szukajautora(int n);
+void buffer(FILE *fp);
 void save();
 void read();
-int i=1;
 
-int main()
-{
-    int choice;
 
-    while(1)    
-    {
-        printf("\nWybierz jedno z działań");
-        printf("\n1.Push\n2.Pop\n3.Show\n4.Is Stack empty?\n5.Zapisz w pliku txt\n6.Odczytaj zawartosc ostatniego zapisu\n7.Wyjdz z programu");
-        printf("\n\nWprowadz swoj wybor");
-        scanf("%d",&choice);
-         
-        switch(choice)
-        {
-            case 1: push();
-                    break;
-            case 2: pop();
-                    break;
-            case 3: show();
-                    break;
-            case 4: top();
-                    break;
-            case 5: save();
-                    break;
-            case 6: read();
-                    break;
-            case 7: exit(0);
-             
-            default: printf("\nBłędny input");
-        }
-    }
+
+void add(int n)  {
+
+  printf("\nPodaj tytuł:\n");
+  scanf("%s", book[n].nazwa);
+  buffer(stdin);
+
+  printf("\nPodaj autora:\n");
+  scanf("%s", book[n].autor);
+  buffer(stdin);
+
+  printf("\nPodaj rok wydania:\n");
+  scanf("%d", &book[n].rok);
+  buffer(stdin);
+
+
 }
-  
-void push()
+
+void del(int n) {
+
+  char zero[21] = {"\0"};
+  char delet[21];
+
+  printf("Podaj tytuł:\n");
+  scanf("%s", delet);
+
+    for(int i = 0; i<=n; i++) {
+
+          if(strcmp(delet, book[i].nazwa) == 0) {
+              strcpy(book[i].nazwa, zero);
+              strcpy(book[i].autor, zero);
+              book[i].rok = 0;
+              book[i].rok = 0;
+          }
+          
+    }
+
+
+}
+
+
+
+void szukajroku(int n) {
+
+  int y;
+  printf("Podaj rok:\n");
+  scanf("%d", &y);
+
+    for(int i = 0; i<=n; i++) {
+      if(y==book[i].rok) {
+
+        printf("\nTytuł książki : %s\nAutor książki : %s\n\n", book[i].nazwa,book[i].autor);
+      }
+      else
+        printf("Nie znaleziono.");
+    }
+
+}
+
+
+
+void szukajautora(int n) {
+
+  char a[21];
+  printf("Podaj autora:\n");
+  scanf("%s", a);
+
+    for(int i = 0; i<=n; i++) {
+      if(strcmp(a, book[i].autor)==0) {
+
+        printf("\nTytuł książki : %s\nData wydania książki : %d\n\n", book[i].nazwa,book[i].rok);
+      }
+      else
+      printf("Nie znaleziono.");
+    }
+
+}
+
+
+
+void buffer(FILE *fp)
 {
     int x;
-     
-    if(Top==Size-1)
-    {
-        printf("\nMaksymalna ilość elementów");
-    }
-    else
-    {
-        printf("\nPodaj element który chcesz dodać:");
-        scanf("%d",&x);
-        Top=Top+1;
-        inp_array[Top]=x;
-    }
-}
-  
-void top()
-{
-  if(Top==-1)
-  printf("Stos jest pusty");
-  else
-  printf("Stos nie jest pusty");
+    while((x = fgetc(fp)) != '\n' && x!=EOF);
 }
 
 
 
-void pop()
-{
-    if(Top==-1)
-    {
-        printf("\nBrak elementów do usunięcia");
-    }
-    else
-    {
-        printf("\nUsunięty element:  %d",inp_array[Top]);
-        Top=Top-1;
-    }
-}
-  
-void show()
-{
-     
-     
-    if(Top==-1)
-    {
-        printf("\nStos jest pusty");
-    }
-    else
-    {
-        printf("\nElementy obecne w stosie: \n");
-        for(int i=Top; i>=0 ;--i)
-            printf("%d\n",inp_array[i]);
-    }
-}
-
-void save(){
+void save(n){
 
 FILE *fptr; 
 
-fptr = fopen("save.txt", "a+"); 
+fptr = fopen("save.txt", "w"); 
     if (fptr == NULL) 
     { 
         printf("Brak pliku \n"); 
         exit(0); 
     } 
-    fprintf(fptr,"Zapis %d:\n",i);
-    i++;
-    for(int i=Top; i>=0 ;--i)
-            fprintf(fptr,"%d\n",inp_array[i]);
+   for(int i=0 ; i<n ; i++){
+     fprintf(fptr,"Ksiazka %d :\nNazwa:%s\nAutor:%s\nRok wydania:%d\n\n"
+     ,i,book[i].nazwa,book[i].autor,book[i].rok);
+   }
+
     fprintf(fptr,"\n");
     fclose(fptr); 
 }
 
+
+
 void read(){
 
     FILE *fptr; 
-  
+    fptr=fopen("save.txt","r");
     char c; 
    
-
-    fptr = fopen("save.txt", "r"); 
-    if (fptr == NULL) 
-    { 
-        printf("Brak pliku\n"); 
-        exit(0); 
-    } 
-  
-    c = fgetc(fptr); 
-    while (c != EOF) 
-    { 
-        printf ("%c", c); 
-        c = fgetc(fptr); 
-    } 
-  
+  while(!feof(fptr))
+  {
+    char line[35];
+    fgets(line,20,fptr);
+    printf("%s\n",line);
+  }
     fclose(fptr); 
     
+}
+
+
+
+int n=0;
+int main() {
+  
+
+
+while(1) {
+  printf("Wybierz jedno z działań :\n1-Dodaj książkę\n2-Usuń książkę\n3-Wyszukaj po roku\n4-Wyszukaj po autorze\n5-Zapisz książki\n6-Odczytaj zapis");
+  int opcja;
+  printf("\n");
+  scanf("%d", &opcja);
+  
+
+
+
+  switch(opcja) {
+    case 1: 
+      if(n>20)  
+        printf("Maksymalna ilość ksiązek to 20.\n");
+      
+      else {
+        add(n);
+        n++;
+        
+      } break;
+
+    case 2:
+      del(n);
+      n--;
+      break;
+
+    case 3:
+      szukajroku(n);
+      break;
+    
+    case 4:
+      szukajautora(n);
+      break;
+    case 5:
+      save(n);
+    case 6:
+      read();
+      break;
+
+    default:
+      printf("Wybierz opcję jeszcze raz.\n");
+
+    printf("\n");
+  }
+
+
+}
+return 0;
 }
 
 
