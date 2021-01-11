@@ -402,6 +402,267 @@ int main(void) {
 ------------------------------------------------------------------------
 ZADANIE_4
 
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+
+struct info {
+
+  char nazwa[21];
+  char autor[21];
+  int rok;
+
+} book[21];
+
+void add(int n);
+void del(int n);
+void szukajroku(int n);
+void szukajautora(int n);
+void buffer(FILE *fp);
+void save(int n);
+void read();
+void binarysave(int n);
+void binaryread(int n);
+
+
+
+
+
+void add(int n)  {
+
+  printf("\nPodaj tytuł:\n");
+  scanf("%s", book[n].nazwa);
+  buffer(stdin);
+
+  printf("\nPodaj autora:\n");
+  scanf("%s", book[n].autor);
+  buffer(stdin);
+
+  printf("\nPodaj rok wydania:\n");
+  scanf("%d", &book[n].rok);
+  buffer(stdin);
+
+
+}
+
+void del(int n) {
+
+  char zero[21] = {"\0"};
+  char delet[21];
+
+  printf("Podaj tytuł:\n");
+  scanf("%s", delet);
+
+    for(int i = 0; i<=n; i++) {
+
+          if(strcmp(delet, book[i].nazwa) == 0) {
+              strcpy(book[i].nazwa, zero);
+              strcpy(book[i].autor, zero);
+              book[i].rok = 0;
+              book[i].rok = 0;
+          }
+          
+    }
+
+
+}
+
+
+
+void szukajroku(int n) {
+
+  int y;
+  printf("Podaj rok:\n");
+  scanf("%d", &y);
+
+    for(int i = 0; i<=n; i++) {
+      if(y==book[i].rok) {
+
+        printf("\nTytuł książki : %s\nAutor książki : %s\n\n", book[i].nazwa,book[i].autor);
+      }
+      else
+        printf("Nie znaleziono.");
+    }
+
+}
+
+
+
+void szukajautora(int n) {
+
+  char a[21];
+  printf("Podaj autora:\n");
+  scanf("%s", a);
+
+    for(int i = 0; i<=n; i++) {
+      if(strcmp(a, book[i].autor)==0) {
+
+        printf("\nTytuł książki : %s\nData wydania książki : %d\n\n", book[i].nazwa,book[i].rok);
+      }
+      else
+      printf("Nie znaleziono.");
+    }
+
+}
+
+
+
+void buffer(FILE *fp)
+{
+    int x;
+    while((x = fgetc(fp)) != '\n' && x!=EOF);
+}
+
+
+
+void save(n){
+
+FILE *fptr; 
+
+fptr = fopen("save.txt", "w"); 
+
+   for(int i=0 ; i<n ; i++){
+     fprintf(fptr,"%d %s %s %d\n",i,book[i].nazwa,book[i].autor,book[i].rok);
+   }
+
+    fprintf(fptr,"\n");
+    fclose(fptr); 
+}
+
+
+
+void read(){
+
+    FILE *fptr; 
+    fptr=fopen("save.txt","r");
+    char c; 
+    int i;
+    int count=0;
+    char nazwa[21];
+    char autor[21];
+    int rok;
+
+    for (c = fgetc(fptr); c != EOF; c = fgetc(fptr)) 
+      if (c == '\n') 
+          count = count + 1; 
+
+    rewind(fptr);
+    for(int i =0;i<count-1;i++)
+    { 
+     fscanf(fptr,"%d %s %s %d",&i,nazwa,autor,&rok);
+      printf("Ksiazka %d :\nNazwa:%s\nAutor:%s\nRok wydania:%d\n\n"
+     ,i,nazwa,autor,rok);
+    }
+
+    fclose(fptr); 
+    
+}
+
+
+
+void readtxtsavebinary(n){
+
+  FILE *fptr;
+  FILE *fptr1;
+
+  int i=0 ;
+  int x;
+  fptr=fopen("save.txt","r");
+  fptr1=fopen("binary.bin","wb");
+
+  while(!feof(fptr))
+  {
+  
+  fscanf(fptr,"%d %s %s %d",&i,book[i].autor,book[i].nazwa,&book[i]
+  .rok);
+  fwrite(&book[i],sizeof(struct info),1,fptr1);
+  }
+
+  fclose(fptr1);
+}
+
+void binaryread(n){
+
+
+FILE *fptr;
+  FILE *fptr1;
+
+
+
+  fptr1=fopen("binary.bin","rb");
+
+  for(int i=0;i<n;i++)
+  {
+  fread(&book[i], sizeof(struct info), n, fptr1);
+  printf("Ksiazka %d :\nNazwa:%s\nAutor:%s\nRok wydania:%d\n\n"
+     ,i,book[i].nazwa,book[i].autor,book[i].rok);
+  }
+  
+  fclose(fptr1);
+}
+
+
+
+int n=0;
+int main() {
+  
+
+
+while(1) {
+  printf("Wybierz jedno z działań :\n1-Dodaj książkę\n2-Usuń książkę\n3-Wyszukaj po roku\n4-Wyszukaj po autorze\n5-Zapisz książki w txt\n6-Odczytaj zapis txt\n7-Zapisz binarnie z bazy pliku txt\n8-Odczytaj zapis binarny");
+  int opcja;
+  printf("\n");
+  scanf("%d", &opcja);
+  
+
+
+
+  switch(opcja) {
+    case 1: 
+      if(n>20)  
+        printf("Maksymalna ilość ksiązek to 20.\n");
+      
+      else {
+        add(n);
+        n++;
+        
+      } break;
+
+    case 2:
+      del(n);
+      n--;
+      break;
+
+    case 3:
+      szukajroku(n);
+      break;
+    
+    case 4:
+      szukajautora(n);
+      break;
+    case 5:
+      save(n);
+      break;
+    case 6:
+      read();
+      break;
+    case 7:
+      readtxtsavebinary(n);
+      break;
+    case 8:
+      binaryread(n);
+      break;
+    default:
+      printf("Wybierz opcję jeszcze raz.\n");
+
+    printf("\n");
+  }
+
+
+}
+return 0;
+}
 
 
 
@@ -420,7 +681,31 @@ ZADANIE_6
 ------------------------------------------------------------------------
 ZADANIE_7
 
+#include<stdio.h>
+#include<stdlib.h>
+int main() {
+	FILE *fp, *fp1;
+    char arr[256];
+	char filename[20], filename1[20];
 
+	printf("Podaj nazwę pliku:\n");
+	gets(f1);
+	printf("Podaj nazwę drugiego pliku:\n");
+	gets(f2);
+
+	fp = fopen(filename,"r");
+	fp1 = fopen(filename1,"a");
+
+
+	while(fgets(arr,sizeof(arr),fp1))
+	      fputs(arr,fp);
+
+
+	fclose(fp);
+	fclose(fp1);
+
+	return 0;
+}
 
 
 ------------------------------------------------------------------------
