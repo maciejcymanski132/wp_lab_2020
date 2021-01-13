@@ -1,1 +1,101 @@
+---------------------------------------------------------
+ZADANIE_1
 
+#include <stdio.h>
+
+int main(void) {
+  unsigned int x ;
+  int i=0,tab_bin[100000];
+  printf("Podaj liczbę naturalną:\n");
+  scanf("%u",&x);
+  while(x>0)
+  {
+    tab_bin[i++]=x%2;
+    x=x/2;
+  }
+
+  for(int j=i-1; j>=0; j--)
+  
+ {
+  printf("%d",tab_bin[j]);
+ }
+  return 0;
+}
+
+---------------------------------------------------------
+ZADANIE_2
+
+
+#include <stdio.h>
+
+int main(void) {
+  unsigned int x ;
+  int i=0,tab_bin[100000];
+  printf("Podaj liczbę naturalną:\n");
+  scanf("%u",&x);
+  while(x>0)
+  {
+    tab_bin[i++]=x%8;
+    x=x/8;
+  }
+
+  for(int j=i-1; j>=0; j--)
+  
+ {
+  printf("%d",tab_bin[j]);
+ }
+  return 0;
+}
+
+
+
+---------------------------------------------------------
+ZADANIE_3
+
+
+#include <stdio.h>
+#include <math.h>
+int main(void) {
+  unsigned int x;
+  unsigned int y=0;
+  int m=0;
+  int s,i;
+  while(s!=1)
+  {
+    printf("Podaj liczbę binarna:\n");
+    scanf("%u",&x);
+
+    while(x!=0)
+    {
+    if(x%2 == 1)
+      {
+        y=y+pow(2,m);
+        m++;
+        x=x/10;
+      }
+    else
+      {
+        x=x/10;
+        m++;
+      }
+    }
+    printf("Oto twoja liczba : %d\n",y);
+    printf("Czy chcesz zakończyć działanie programu?\n1-Tak\n2-Nie\n");
+    scanf("%d",&s);
+  }
+
+ 
+ 
+  return 0;
+}
+
+---------------------------------------------------------
+ZADANIE_4
+
+
+---------------------------------------------------------
+ZADANIE_5
+---------------------------------------------------------
+ZADANIE_6
+---------------------------------------------------------
+ZADANIE_7
